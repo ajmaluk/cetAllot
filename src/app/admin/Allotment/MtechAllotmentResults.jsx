@@ -17,6 +17,7 @@ const getMtechSpecializations = () => [
   "Control Systems (Electrical Engineering)",
   "Thermal Science (Mechanical Engineering)",
   "Traffic & Transportation Engineering (Civil Engineering)",
+  "Waiting List",
 ];
 
 export const MtechAllotmentResults = ({ selectedYear: selectedYearProp, setSelectedYear: setSelectedYearProp }) => {

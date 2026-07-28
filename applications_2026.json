@@ -1,0 +1,2822 @@
+[
+  {
+    "id": "btech_2026_reg_-_anooplr1821@gmail.com_9745668486",
+    "religion": "Hindu",
+    "adharNumber": "485377424073",
+    "address": "L K NIVAS, ANGAVILA, VAKKOM",
+    "company": "VSSC, TRIVANDRUM",
+    "name": "ANOOP L R",
+    "phone": "9745668486",
+    "age": 29,
+    "letRegNo": "-",
+    "mark": 87.78,
+    "distance": 5,
+    "highestEducation": "Diploma",
+    "isSpot": false,
+    "category": "Ezhava",
+    "letRank": "0",
+    "caste": "Ezhava",
+    "experience": 1,
+    "submittedAt": {
+      "seconds": 1783091090,
+      "nanoseconds": 328000000
+    },
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Computer Science and Engineering"
+    },
+    "reservationCategory": "Ezhava",
+    "email": "anooplr1821@gmail.com"
+  },
+  {
+    "id": "btech_2026_reg_0_abhaygeorge2@gmail.com_7994609812",
+    "mark": 68,
+    "distance": 5,
+    "letRegNo": "0",
+    "name": "ABHAY C GEORGE ",
+    "phone": "7994609812",
+    "age": 24,
+    "religion": "Christian",
+    "address": "Puthuval Purayidam Thumba Pallithura P.O ",
+    "adharNumber": "372757873418",
+    "company": "Toyota ",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Computer Science and Engineering"
+    },
+    "reservationCategory": "OBC Christian",
+    "email": "abhaygeorge2@gmail.com",
+    "experience": 1,
+    "submittedAt": {
+      "seconds": 1783074229,
+      "nanoseconds": 84000000
+    },
+    "letRank": "0",
+    "caste": "Latin Catholic",
+    "highestEducation": "Diploma",
+    "isSpot": false,
+    "category": "OBC Christian"
+  },
+  {
+    "id": "btech_2026_reg_0_abut60322@gmail.com_7593800934",
+    "letRegNo": "0",
+    "distance": 10,
+    "mark": 75.6,
+    "religion": "Muslim/Islam",
+    "adharNumber": "961738394477",
+    "address": "Parayam vilakathu veedu pulinchi Nedumangad ",
+    "company": "Alp Turnkey Solutions ",
+    "phone": "7593800934",
+    "age": 25,
+    "name": "Abu thahir S",
+    "experience": 4,
+    "submittedAt": {
+      "seconds": 1783583654,
+      "nanoseconds": 812000000
+    },
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "email": "abut60322@gmail.com",
+    "reservationCategory": "Muslim",
+    "highestEducation": "Diploma",
+    "category": "Muslim",
+    "isSpot": false,
+    "letRank": "0",
+    "caste": "Islam"
+  },
+  {
+    "id": "btech_2026_reg_0_bgsunilkrishna@gmail.com_8547441257",
+    "letRegNo": "0",
+    "mark": 68.31,
+    "distance": 0,
+    "company": "COLLEGE OF ENGINEERING THIRUVANANTHAPURAM",
+    "religion": "Hindu",
+    "address": "NAVANEETHAM,PADAVALLIKONAM,KARIPPOOR  P O,NEDUMANGAD",
+    "adharNumber": "567398027825",
+    "name": "SUNIL KUMAR B",
+    "age": 49,
+    "phone": "8547441257",
+    "submittedAt": {
+      "seconds": 1783571693,
+      "nanoseconds": 209000000
+    },
+    "experience": 26,
+    "reservationCategory": "SC",
+    "email": "bgsunilkrishna@gmail.com",
+    "priorityChoices": {
+      "1": "Electronics and Communication Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "isSpot": false,
+    "category": "SC",
+    "highestEducation": "Diploma",
+    "caste": "Others",
+    "letRank": "0"
+  },
+  {
+    "id": "btech_2026_reg_0_kumarguptayogesh385@gmail.com_7376461102",
+    "category": "Central govt. employee",
+    "isSpot": false,
+    "highestEducation": "Diploma",
+    "caste": "Others",
+    "letRank": "0",
+    "submittedAt": {
+      "seconds": 1783584468,
+      "nanoseconds": 43000000
+    },
+    "experience": 2.5,
+    "email": "kumarguptayogesh385@gmail.com",
+    "reservationCategory": "Central govt. employee",
+    "priorityChoices": {
+      "1": "Electronics and Communication Engineering",
+      "2": "Mechanical Engineering",
+      "3": "Computer Science and Engineering"
+    },
+    "company": "National centre for earth science studies ",
+    "religion": "Hindu",
+    "adharNumber": "473265432450",
+    "address": "Present address - Mayoora lodge pulayanarkotta jn Thiruvananthapuram,  Parmanent add - Goshaiganj Ayodhya UP",
+    "age": 22,
+    "phone": "7376461102",
+    "name": "Yogesh Kumar Gupta",
+    "letRegNo": "0",
+    "distance": 5,
+    "mark": 79.44
+  },
+  {
+    "id": "btech_2026_reg_0_manju1shibu@gmail.com_9539532416",
+    "reservationCategory": "General",
+    "email": "Manju1Shibu@gmail.com",
+    "priorityChoices": {
+      "1": "Electronics and Communication Engineering",
+      "2": "Mechanical Engineering",
+      "3": "Computer Science and Engineering"
+    },
+    "submittedAt": {
+      "seconds": 1783568343,
+      "nanoseconds": 729000000
+    },
+    "experience": 19,
+    "caste": "Nair",
+    "letRank": "0",
+    "isSpot": false,
+    "category": "General",
+    "highestEducation": "Diploma",
+    "mark": 67.6,
+    "distance": 25,
+    "letRegNo": "0",
+    "name": "Manju K",
+    "phone": "9539532416",
+    "age": 40,
+    "company": "Keltron equipment complex, karakulam ",
+    "religion": "Hindu",
+    "adharNumber": "957004137323",
+    "address": "Manjubhavan,vishnunagar"
+  },
+  {
+    "id": "btech_2026_reg_0_navaneethvismaya@gmail.com_9207541464",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "email": "navaneethvismaya@gmail.com",
+    "reservationCategory": "Ezhava",
+    "experience": 1,
+    "submittedAt": {
+      "seconds": 1783594731,
+      "nanoseconds": 967000000
+    },
+    "letRank": "0",
+    "caste": "Ezhava",
+    "highestEducation": "Diploma",
+    "category": "Ezhava",
+    "isSpot": false,
+    "distance": 6.5,
+    "mark": 93.3,
+    "letRegNo": "0",
+    "age": 20,
+    "phone": "9207541464",
+    "name": "Navaneeth B Vijayan",
+    "address": "Poovanathumood veedu poovathoor po Nedumangad Trivandrum",
+    "adharNumber": "950715530381",
+    "religion": "Hindu",
+    "company": "Trenser Technologies"
+  },
+  {
+    "id": "btech_2026_reg_0_s43004310@gmail.com_9778154793",
+    "company": "Kinfra ",
+    "address": "Deva prabha, santhi nagar parayathukonam p.o Attingal ",
+    "adharNumber": "838729247618",
+    "religion": "Hindu",
+    "phone": "9778154793",
+    "age": 27,
+    "name": "Shilpa S",
+    "letRegNo": "0",
+    "distance": 5.5,
+    "mark": 75.4,
+    "category": "SC",
+    "isSpot": false,
+    "highestEducation": "Diploma",
+    "caste": "Others",
+    "letRank": "0",
+    "submittedAt": {
+      "seconds": 1783443883,
+      "nanoseconds": 450000000
+    },
+    "experience": 1,
+    "email": "s43004310@gmail.com",
+    "reservationCategory": "SC",
+    "priorityChoices": {
+      "1": "Electronics and Communication Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Mechanical Engineering"
+    }
+  },
+  {
+    "id": "btech_2026_reg_0_sarathrs464@gmail.com_9746986277",
+    "submittedAt": {
+      "seconds": 1783074053,
+      "nanoseconds": 154000000
+    },
+    "experience": 5,
+    "email": "sarathrs464@gmail.com",
+    "reservationCategory": "General",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "category": "General",
+    "isSpot": false,
+    "highestEducation": "Diploma",
+    "caste": "Nair",
+    "letRank": "0",
+    "letRegNo": "0",
+    "distance": 5.2,
+    "mark": 66.4,
+    "company": "Ust global ",
+    "religion": "Hindu",
+    "adharNumber": "404042720902",
+    "address": "Sarath Nivas Chayrakkal",
+    "phone": "9746986277",
+    "age": 27,
+    "name": "Sarath R S"
+  },
+  {
+    "id": "btech_2026_reg_0_sreekuttanathul10@gmail.com_9497867792",
+    "letRegNo": "0",
+    "mark": 80.37,
+    "distance": 6.5,
+    "company": "Experion Technologies (India) Private Limited",
+    "adharNumber": "293349677135",
+    "religion": "Hindu",
+    "address": "Nalupura house, chira mannapra post, Palakkad Kerala 678685",
+    "name": "Athul Muraleedharan",
+    "age": 24,
+    "phone": "9497867792",
+    "submittedAt": {
+      "seconds": 1783484632,
+      "nanoseconds": 553000000
+    },
+    "experience": 3.5,
+    "reservationCategory": "Ezhava",
+    "email": "sreekuttanathul10@gmail.com",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "isSpot": false,
+    "category": "Ezhava",
+    "highestEducation": "Diploma",
+    "caste": "Ezhava",
+    "letRank": "0"
+  },
+  {
+    "id": "btech_2026_reg_0_sreelalsasidhar@gmail.com_8547635464",
+    "highestEducation": "Diploma",
+    "isSpot": false,
+    "category": "Ezhava",
+    "letRank": "0",
+    "caste": "Ezhava",
+    "experience": 23,
+    "submittedAt": {
+      "seconds": 1783489311,
+      "nanoseconds": 624000000
+    },
+    "priorityChoices": {
+      "1": "Electronics and Communication Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "reservationCategory": "Ezhava",
+    "email": "sreelalsasidhar@gmail.com",
+    "adharNumber": "420578045224",
+    "address": "Devmangal ,Cheguvera lane, Mukkolakkal,kallayam PO,695043",
+    "religion": "Hindu",
+    "company": "Prasar bharati,Aakashavani(All India radio)",
+    "name": "Sreelal .C.S",
+    "age": 47,
+    "phone": "8547635464",
+    "letRegNo": "0",
+    "mark": 79.04,
+    "distance": 11
+  },
+  {
+    "id": "btech_2026_reg_0_vaishh.me@gmail.com_8921886024",
+    "caste": "Others",
+    "letRank": "0",
+    "category": "Other Backward Hindu",
+    "isSpot": false,
+    "highestEducation": "BTech",
+    "email": "vaishh.me@gmail.com",
+    "reservationCategory": "Other Backward Hindu",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Mechanical Engineering",
+      "3": "Electronics and Communication Engineering"
+    },
+    "submittedAt": {
+      "seconds": 1783063741,
+      "nanoseconds": 166000000
+    },
+    "experience": null,
+    "age": null,
+    "phone": "8921886024",
+    "name": "Vaishakhi M",
+    "company": "",
+    "adharNumber": "409317485830",
+    "address": "",
+    "religion": "Hindu",
+    "distance": 8,
+    "mark": 81,
+    "letRegNo": "0"
+  },
+  {
+    "id": "btech_2026_reg_160274_anandhukrishz07@gmail.com_7994488008",
+    "reservationCategory": "Ezhava",
+    "email": "anandhukrishz07@gmail.com",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "submittedAt": {
+      "seconds": 1783080335,
+      "nanoseconds": 545000000
+    },
+    "experience": 1,
+    "caste": "Ezhava",
+    "letRank": "855",
+    "isSpot": false,
+    "category": "Ezhava",
+    "highestEducation": "Diploma",
+    "mark": 79.42,
+    "distance": 6.6,
+    "letRegNo": "160274",
+    "name": "Anandhu Krishnan S",
+    "phone": "7994488008",
+    "age": 25,
+    "company": "Nkorr technologies ",
+    "religion": "Hindu",
+    "adharNumber": "554868251736",
+    "address": "Carnival building"
+  },
+  {
+    "id": "btech_2026_reg_160284_shameer.an@gmail.com_9895543009",
+    "reservationCategory": "Muslim",
+    "email": "shameer.an@gmail.com",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "submittedAt": {
+      "seconds": 1783321898,
+      "nanoseconds": 510000000
+    },
+    "experience": 9,
+    "caste": "Islam",
+    "letRank": "931",
+    "isSpot": false,
+    "category": "Muslim",
+    "highestEducation": "Diploma",
+    "mark": 75,
+    "distance": 8,
+    "letRegNo": "160284",
+    "name": "Shameer A N",
+    "phone": "9895543009",
+    "age": 38,
+    "company": "GEC Barton Hill",
+    "religion": "Muslim/Islam",
+    "address": "Shameena manzil Tc 5/1213(1) Chavadimukku Sreekaryam P.O TVPM",
+    "adharNumber": "442529242308"
+  },
+  {
+    "id": "btech_2026_reg_160297_midhunareenamadhu@gmail.com_8921983195",
+    "religion": "Hindu",
+    "adharNumber": "923475549360",
+    "address": "TOSIL Systems Private Limited Module No. KAL_1_2, Kallayi Building, Phase-I Campus, Technopark, Thiruvananthapuram",
+    "company": "TOSIL Systems Private Limited",
+    "phone": "8921983195",
+    "age": 30,
+    "name": "Midhun A Madhu",
+    "letRegNo": "160297",
+    "distance": 6.2,
+    "mark": 86.73,
+    "highestEducation": "Diploma",
+    "category": "General",
+    "isSpot": false,
+    "letRank": "216",
+    "caste": "Nair",
+    "experience": 3.11,
+    "submittedAt": {
+      "seconds": 1783011674,
+      "nanoseconds": 509000000
+    },
+    "priorityChoices": {
+      "1": "Electronics and Communication Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "email": "midhunareenamadhu@gmail.com",
+    "reservationCategory": "General"
+  },
+  {
+    "id": "btech_2026_reg_160414_athulkrishnanas321@gmail.com_8078114005",
+    "letRegNo": "160414",
+    "mark": 78.3,
+    "distance": 10,
+    "company": "Sivavasu Electronics Pvt ltd",
+    "adharNumber": "470746559140",
+    "religion": "Hindu",
+    "address": "Chandhanam,Melathumukku,Vilappilsala PO,Thiruvananthapuram",
+    "name": "Athul Krishnan A S",
+    "phone": "8078114005",
+    "age": 23,
+    "submittedAt": {
+      "seconds": 1783516854,
+      "nanoseconds": 598000000
+    },
+    "experience": 2,
+    "reservationCategory": "General",
+    "email": "athulkrishnanas321@gmail.com",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "isSpot": false,
+    "category": "General",
+    "highestEducation": "Diploma",
+    "caste": "Nair",
+    "letRank": "3296"
+  },
+  {
+    "id": "btech_2026_reg_160445_rameshveettoor@gmail.com_9447821426",
+    "company": "VSSC/ISRO",
+    "religion": "Hindu",
+    "adharNumber": "852738388335",
+    "address": "House no226 A,Dhwani, Alanthara Venjarammoodu Trivandrum",
+    "phone": "9447821426",
+    "age": 47,
+    "name": "Ramesh Kumar K G ",
+    "letRegNo": "160445",
+    "distance": 7,
+    "mark": 86.83,
+    "category": "Other Backward Hindu",
+    "isSpot": false,
+    "highestEducation": "Diploma",
+    "caste": "Viswakarma",
+    "letRank": "2241",
+    "submittedAt": {
+      "seconds": 1783086220,
+      "nanoseconds": 116000000
+    },
+    "experience": 14,
+    "email": "rameshveettoor@gmail.com",
+    "reservationCategory": "Other Backward Hindu",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Electronics and Communication Engineering"
+    }
+  },
+  {
+    "id": "btech_2026_reg_160952_saraswathykseb@gmail.com_9446194108",
+    "reservationCategory": "SC",
+    "email": "saraswathykseb@gmail.com",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "submittedAt": {
+      "seconds": 1783084911,
+      "nanoseconds": 207000000
+    },
+    "experience": 27,
+    "caste": "Others",
+    "letRank": "3281",
+    "isSpot": false,
+    "category": "SC",
+    "highestEducation": "Diploma",
+    "mark": 63.36,
+    "distance": 8,
+    "letRegNo": "160952",
+    "name": "SARASWATHY T",
+    "phone": "9446194108",
+    "age": 52,
+    "company": "KERALA STATE ELECTRICITY BOARD LTD",
+    "religion": "Hindu",
+    "address": "Flat #1C, Heera Point, Pattom, Thiruvananthapram -695004",
+    "adharNumber": "233702511816"
+  },
+  {
+    "id": "btech_2026_reg_161034_rohanraynishh@gmail.com_7907345036",
+    "reservationCategory": "Latin Catholic and Anglo Indian",
+    "email": "rohanraynishh@gmail.com",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "submittedAt": {
+      "seconds": 1783145066,
+      "nanoseconds": 794000000
+    },
+    "experience": 1.5,
+    "caste": "Latin Catholic",
+    "letRank": "2986",
+    "isSpot": false,
+    "category": "Latin Catholic and Anglo Indian",
+    "highestEducation": "Diploma",
+    "mark": 74.58,
+    "distance": 6,
+    "letRegNo": "161034",
+    "name": "Rohan Raynish",
+    "age": 23,
+    "phone": "7907345036",
+    "company": "GAUDE BUSINESS & INFRASTRUCTURE SOLUTIONS PVT LTD",
+    "adharNumber": "826910224831",
+    "religion": "Christian",
+    "address": "R.R Villa, Theatre J.N, Vizhinjam, Venganoor P.O"
+  },
+  {
+    "id": "btech_2026_reg_161250_sanas.sana999@gmail.com_9567959319",
+    "submittedAt": {
+      "seconds": 1783015557,
+      "nanoseconds": 198000000
+    },
+    "experience": 3,
+    "email": "sanas.sana999@gmail.com",
+    "reservationCategory": "Muslim",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "category": "Muslim",
+    "isSpot": false,
+    "highestEducation": "Diploma",
+    "caste": "Islam",
+    "letRank": "353",
+    "letRegNo": "161250",
+    "distance": 4.5,
+    "mark": 89.5,
+    "company": "Trenser Technology Solutions Private Limited ",
+    "adharNumber": "790328846748",
+    "address": "21, Devanagar, Kazhakuttam",
+    "religion": "Muslim/Islam",
+    "phone": "9567959319",
+    "age": 24,
+    "name": "Sana Mol P.A"
+  },
+  {
+    "id": "btech_2026_reg_161754_akbarshabana1999@gmail.com_7034397207",
+    "highestEducation": "Diploma",
+    "category": "Muslim",
+    "isSpot": false,
+    "letRank": "2975",
+    "caste": "Islam",
+    "experience": 3.7,
+    "submittedAt": {
+      "seconds": 1783241635,
+      "nanoseconds": 531000000
+    },
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "email": "akbarshabana1999@gmail.com",
+    "reservationCategory": "Muslim",
+    "adharNumber": "310543960110",
+    "religion": "Muslim/Islam",
+    "address": "sha mahal vazhayila peroorkada TVM ",
+    "company": "Kerala State Data Centre",
+    "phone": "7034397207",
+    "age": 26,
+    "name": "SHABANA SN",
+    "letRegNo": "161754",
+    "distance": 15,
+    "mark": 80.7
+  },
+  {
+    "id": "btech_2026_reg_161766_sk785045@gmail.com_6203012639",
+    "letRank": "446",
+    "caste": "Others",
+    "highestEducation": "Diploma",
+    "category": "Central govt. employee",
+    "isSpot": false,
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Civil Engineering",
+      "3": "Electrical and Electronics Engineering"
+    },
+    "email": "sk785045@gmail.com",
+    "reservationCategory": "Central govt. employee",
+    "experience": 3.5,
+    "submittedAt": {
+      "seconds": 1783747563,
+      "nanoseconds": 861000000
+    },
+    "age": 31,
+    "phone": "6203012639",
+    "name": "Sonu Kumar singh",
+    "adharNumber": "953479004164",
+    "religion": "Hindu",
+    "address": "Village -Hazari dhamna,po- singhrawan, Dst.-Hazaribagh, jharkhand -825405",
+    "company": "Vssc",
+    "distance": 10,
+    "mark": 80.77,
+    "letRegNo": "161766"
+  },
+  {
+    "id": "btech_2026_reg_162002_shijinanizar14@gmail.com_9747030732",
+    "caste": "Islam",
+    "letRank": "1894",
+    "category": "Muslim",
+    "isSpot": false,
+    "highestEducation": "Diploma",
+    "email": "shijinanizar14@gmail.com",
+    "reservationCategory": "Muslim",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "submittedAt": {
+      "seconds": 1783358294,
+      "nanoseconds": 581000000
+    },
+    "experience": 1,
+    "age": 22,
+    "phone": "9747030732",
+    "name": "SHIJINA NIZAR",
+    "company": "TOSIL Systems Private Limited",
+    "adharNumber": "921427753735",
+    "address": "Module No. KAL_1_2, Kallayi Building, Phase-I Campus, Technopark, Thiruvananthapuram (Trivandrum), Kerala – 695581",
+    "religion": "Muslim/Islam",
+    "distance": 6,
+    "mark": 86.1,
+    "letRegNo": "162002"
+  },
+  {
+    "id": "btech_2026_reg_162047_aruneshmr@gmail.com_8139889372",
+    "religion": "Hindu",
+    "address": "VIAS3D PRIVATE LIMITED First Floor, T.C 29/2233-4, Kochar Road, Sasthamangalam, Thiruvananthapuram, Thiruvananthapuram, Kerala, 695010",
+    "adharNumber": "655082320056",
+    "company": "Vias3d Pvt Ltd ",
+    "name": "Arunesh M R",
+    "age": 29,
+    "phone": "8139889372",
+    "letRegNo": "162047",
+    "mark": 71.92,
+    "distance": 12,
+    "highestEducation": "Diploma",
+    "isSpot": false,
+    "category": "Ezhava",
+    "letRank": "3101",
+    "caste": "Ezhava",
+    "experience": 6,
+    "submittedAt": {
+      "seconds": 1783015785,
+      "nanoseconds": 97000000
+    },
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "reservationCategory": "Ezhava",
+    "email": "aruneshmr@gmail.com"
+  },
+  {
+    "id": "btech_2026_reg_16262983_vishnumukundan2021@gmail.com_9400387476",
+    "reservationCategory": "DTE Staff",
+    "email": "vishnumukundan2021@gmail.com",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Computer Science and Engineering"
+    },
+    "submittedAt": {
+      "seconds": 1783084959,
+      "nanoseconds": 797000000
+    },
+    "experience": 2,
+    "caste": "Ezhava",
+    "letRank": "2419",
+    "isSpot": false,
+    "category": "DTE Staff",
+    "highestEducation": "Diploma",
+    "mark": 82,
+    "distance": 70,
+    "letRegNo": "16262983",
+    "name": "Vishnu.M",
+    "phone": "9400387476",
+    "age": 33,
+    "company": "WPTC Kayamkulam ",
+    "religion": "Hindu",
+    "adharNumber": "920986549578",
+    "address": "Pochetharayil Erickavu po karthikappally Alappuzha 690516"
+  },
+  {
+    "id": "btech_2026_reg_16263466_ssanurage@gmail.com_9778320527",
+    "experience": 1.8,
+    "submittedAt": {
+      "seconds": 1783185954,
+      "nanoseconds": 433000000
+    },
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "reservationCategory": "SC",
+    "email": "ssanurage@gmail.com",
+    "highestEducation": "Diploma",
+    "isSpot": false,
+    "category": "SC",
+    "letRank": "1641",
+    "caste": "Pulaya",
+    "letRegNo": "16263466",
+    "mark": 84,
+    "distance": 4,
+    "address": "Satheesh bhavan ks road ,kovalam",
+    "adharNumber": "633808791129",
+    "religion": "Hindu",
+    "company": "Acsia Technologies",
+    "name": "ANURAGE SS",
+    "age": 22,
+    "phone": "9778320527"
+  },
+  {
+    "id": "btech_2026_reg_16264507_bineeshbabu0003@gmail.com_7559837724",
+    "isSpot": false,
+    "category": "General",
+    "highestEducation": "Diploma",
+    "caste": "Nair",
+    "letRank": "1650",
+    "submittedAt": {
+      "seconds": 1783229494,
+      "nanoseconds": 256000000
+    },
+    "experience": 3.5,
+    "reservationCategory": "General",
+    "email": "bineeshbabu0003@gmail.com",
+    "priorityChoices": {
+      "1": "Electronics and Communication Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "company": "Acsia Technologies",
+    "address": "Eden,padanilam, chirayinkeezhu Po,695304",
+    "adharNumber": "541347286487",
+    "religion": "Hindu",
+    "name": "Bineesh B",
+    "phone": "7559837724",
+    "age": 28,
+    "letRegNo": "16264507",
+    "mark": 78.47,
+    "distance": 5
+  },
+  {
+    "id": "btech_2026_reg_162770_jijog4629@gmail.com_9072911806",
+    "mark": 71.25,
+    "distance": 25,
+    "letRegNo": "162770",
+    "name": "Jijo George ",
+    "phone": "9072911806",
+    "age": 23,
+    "religion": "Christian",
+    "address": "Attulinepurayidam puthiyathura puthiyathura po, 695526,Thiruvananthapuram ",
+    "adharNumber": "434123288413",
+    "company": "Trivandrum future mobility private limited ",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Computer Science and Engineering"
+    },
+    "reservationCategory": "OBC Christian",
+    "email": "jijog4629@gmail.com",
+    "experience": null,
+    "submittedAt": {
+      "seconds": 1783097027,
+      "nanoseconds": 570000000
+    },
+    "letRank": "4052",
+    "caste": "Latin Catholic",
+    "highestEducation": "Diploma",
+    "isSpot": false,
+    "category": "OBC Christian"
+  },
+  {
+    "id": "btech_2026_reg_163260_mohanprajapati.2121@gmail.com_8890350192",
+    "name": "MOHAN RAM",
+    "phone": "8890350192",
+    "age": 32,
+    "address": "MPA/MMA/MME, RFF AREA, VSSC, Thumba, Thiruvananthapuram, kerala (695022)",
+    "adharNumber": "916094677339",
+    "religion": "Hindu",
+    "company": "VSSC, ISRO",
+    "mark": 82.1,
+    "distance": 6,
+    "letRegNo": "163260",
+    "letRank": "180",
+    "caste": "Others",
+    "highestEducation": "Diploma",
+    "isSpot": false,
+    "category": "Central govt. employee",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Civil Engineering",
+      "3": "Electrical and Electronics Engineering"
+    },
+    "reservationCategory": "Central govt. employee",
+    "email": "mohanprajapati.2121@gmail.com",
+    "experience": 5.5,
+    "submittedAt": {
+      "seconds": 1783745830,
+      "nanoseconds": 654000000
+    }
+  },
+  {
+    "id": "btech_2026_reg_164314_jishnusaseendran82@gmail.com_9633036381",
+    "category": "EWS",
+    "isSpot": false,
+    "highestEducation": "Diploma",
+    "caste": "Nair",
+    "letRank": "2415",
+    "submittedAt": {
+      "seconds": 1783434651,
+      "nanoseconds": 414000000
+    },
+    "experience": 2.5,
+    "email": "jishnusaseendran82@gmail.com",
+    "reservationCategory": "EWS",
+    "priorityChoices": {
+      "1": "Electronics and Communication Engineering",
+      "2": "Mechanical Engineering",
+      "3": "Computer Science and Engineering"
+    },
+    "company": "Bluestar limited ",
+    "adharNumber": "711108675734",
+    "address": "Sreechitra nagar pipeline road kowdiar Tvm",
+    "religion": "Hindu",
+    "phone": "9633036381",
+    "age": 25,
+    "name": "Jishnu saseendran ",
+    "letRegNo": "164314",
+    "distance": 15,
+    "mark": 74
+  },
+  {
+    "id": "btech_2026_reg_164487_kanhaiya1197@gmail.com_9110165202",
+    "company": "Indian Space Research Organisation ",
+    "address": "Mayookam, Pullipara Road Nedumangad p.o., Trivandrum 695541",
+    "adharNumber": "",
+    "religion": "Hindu",
+    "age": 28.5,
+    "phone": "9110165202",
+    "name": "Kanhaiya Kumar ",
+    "letRegNo": "164487",
+    "distance": 25,
+    "mark": 83.06,
+    "category": "Central govt. employee",
+    "isSpot": false,
+    "highestEducation": "Diploma",
+    "caste": "Others",
+    "letRank": "119",
+    "submittedAt": {
+      "seconds": 1783248377,
+      "nanoseconds": 373000000
+    },
+    "experience": 6.5,
+    "email": "kanhaiya1197@gmail.com",
+    "reservationCategory": "Central govt. employee",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Computer Science and Engineering"
+    }
+  },
+  {
+    "id": "btech_2026_reg_26801001_sumeshsr04@gmail.com_7306907493",
+    "company": "NKORR Technologies Pvt. Ltd",
+    "religion": "Hindu",
+    "address": "NKORR Technologies Pvt. Ltd, 1D - Carnival Building, Technopark Phase-1, Kazhakkoottam, Trivandrum ,PIN 695581",
+    "adharNumber": "642173705802",
+    "phone": "7306907493",
+    "age": 21,
+    "name": "SUMESH S R",
+    "letRegNo": "26801001",
+    "distance": 6.6,
+    "mark": 87.685,
+    "category": "Viswakarma",
+    "isSpot": false,
+    "highestEducation": "Diploma",
+    "caste": "Viswakarma",
+    "letRank": "447",
+    "submittedAt": {
+      "seconds": 1783512462,
+      "nanoseconds": 680000000
+    },
+    "experience": 1,
+    "email": "sumeshsr04@gmail.com",
+    "reservationCategory": "Viswakarma",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    }
+  },
+  {
+    "id": "btech_2026_reg_26801096_remyalazar357@gmail.com_9645439075",
+    "name": "REMYA LAZAR",
+    "age": 42,
+    "phone": "9645439075",
+    "company": "GOVT ITI CHACKAI",
+    "adharNumber": "565702776091",
+    "religion": "Christian",
+    "address": "CHARUPARAMBAN HOUSE, P O KONIKKARA,THALORE, THALAVANIKKARA",
+    "mark": 72,
+    "distance": 20,
+    "letRegNo": "26801096",
+    "caste": "Roman Catholic",
+    "letRank": "620",
+    "isSpot": false,
+    "category": "General",
+    "highestEducation": "Diploma",
+    "reservationCategory": "General",
+    "email": "remyalazar357@gmail.com",
+    "priorityChoices": {
+      "1": "Electronics and Communication Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "submittedAt": {
+      "seconds": 1783411480,
+      "nanoseconds": 212000000
+    },
+    "experience": 12
+  },
+  {
+    "id": "btech_2026_reg_26801105_arjunpattazhi97@gmail.com_9847097743",
+    "experience": 6,
+    "submittedAt": {
+      "seconds": 1783060574,
+      "nanoseconds": 307000000
+    },
+    "priorityChoices": {
+      "1": "Electronics and Communication Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "reservationCategory": "Viswakarma",
+    "email": "arjunpattazhi97@gmail.com",
+    "highestEducation": "Diploma",
+    "isSpot": false,
+    "category": "Viswakarma",
+    "letRank": "135",
+    "caste": "Viswakarma",
+    "letRegNo": "26801105",
+    "mark": 81.92,
+    "distance": 4.5,
+    "adharNumber": "415830289284",
+    "address": "PALASSERIL VEEDU MARUTHAMAN BHAGAM THEKKETHERI PO PATTAZHI PIN-691522",
+    "religion": "Hindu",
+    "company": "TOSIL SYSTEMS PVT LTD",
+    "name": "ARJUN B RAJ",
+    "phone": "9847097743",
+    "age": 29
+  },
+  {
+    "id": "btech_2026_reg_26801108_lijovarghesevembilly@gmail.com_9895381397",
+    "submittedAt": {
+      "seconds": 1783416945,
+      "nanoseconds": 430000000
+    },
+    "experience": 16,
+    "reservationCategory": "General",
+    "email": "lijovarghesevembilly@gmail.com",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Computer Science and Engineering"
+    },
+    "isSpot": false,
+    "category": "General",
+    "highestEducation": "Diploma",
+    "caste": "Roman Catholic",
+    "letRank": "547",
+    "letRegNo": "26801108",
+    "mark": 72,
+    "distance": 10,
+    "company": "C & T Consulting Engineers (P) Ltd",
+    "religion": "Christian",
+    "adharNumber": "565294673683",
+    "address": "TC91/828, Bungalowil Road, Anayara P.O, Trivandrum 695029",
+    "name": "Lijo Varghese",
+    "phone": "9895381397",
+    "age": 36
+  },
+  {
+    "id": "btech_2026_reg_26801121_muhd.afsxl@gmail.com_6282254392",
+    "letRegNo": "26801121",
+    "distance": 6.6,
+    "mark": 73.055,
+    "religion": "Muslim/Islam",
+    "adharNumber": "212401681727",
+    "address": "NKORR Technologies Pvt, Ltd, 1D.Carnival Building, Technopark Phase.1, Kazhakkoottam, Trivandrum - 695581",
+    "company": "NKORR Technologies Pvt, Ltd",
+    "phone": "6282254392",
+    "age": 23,
+    "name": "MUHAMMED AFSAL A",
+    "experience": 2,
+    "submittedAt": {
+      "seconds": 1783524279,
+      "nanoseconds": 773000000
+    },
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "email": "muhd.afsxl@gmail.com",
+    "reservationCategory": "Muslim",
+    "highestEducation": "Diploma",
+    "category": "Muslim",
+    "isSpot": false,
+    "letRank": "707",
+    "caste": "Islam"
+  },
+  {
+    "id": "btech_2026_reg_26801153_muneer.m@myyahoo.com_7356630023",
+    "highestEducation": "Diploma",
+    "category": "Muslim",
+    "isSpot": false,
+    "letRank": "3006",
+    "caste": "Islam",
+    "experience": 1.5,
+    "submittedAt": {
+      "seconds": 1783142666,
+      "nanoseconds": 369000000
+    },
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "email": "muneer.m@myyahoo.com",
+    "reservationCategory": "Muslim",
+    "religion": "Muslim/Islam",
+    "adharNumber": "353088441226",
+    "address": "GSSNRA77KP41/252,NCC Rd,Samithy Nagar,Ambalamukku, Thiruvananthapuram,Kerala 695005",
+    "company": "Sivavasu Electronics",
+    "phone": "7356630023",
+    "age": 23,
+    "name": "MUNEER M",
+    "letRegNo": "26801153",
+    "distance": 12,
+    "mark": 76.38
+  },
+  {
+    "id": "btech_2026_reg_26801154_arifbussid123@gmail.com_8943145516",
+    "religion": "Muslim/Islam",
+    "adharNumber": "963693990788",
+    "address": "Shiva vasu electronics industries ncc road peroorkada trivandrum 696005 Kerala ",
+    "company": "Shivavasu electronics ",
+    "age": 22,
+    "phone": "8943145516",
+    "name": "Arif muhammad F",
+    "letRegNo": "26801154 ",
+    "distance": 12,
+    "mark": 78.37,
+    "highestEducation": "Diploma",
+    "category": "Muslim",
+    "isSpot": false,
+    "letRank": "2734",
+    "caste": "Islam",
+    "experience": 1.5,
+    "submittedAt": {
+      "seconds": 1783410256,
+      "nanoseconds": 429000000
+    },
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "email": "arifbussid123@gmail.com",
+    "reservationCategory": "Muslim"
+  },
+  {
+    "id": "btech_2026_reg_26801158_sreebkavya@gmail.com_9400163906",
+    "letRegNo": "26801158",
+    "distance": 70,
+    "mark": 82.04,
+    "company": "Mahindra & Mahindra ",
+    "religion": "Hindu",
+    "adharNumber": "755004805569",
+    "address": "Revathy, vayambakonam, Mannanthala PO, Thiruvananthapuram ",
+    "phone": "9400163906",
+    "age": 25,
+    "name": "Kavya Sree B ",
+    "submittedAt": {
+      "seconds": 1783478748,
+      "nanoseconds": 187000000
+    },
+    "experience": 1,
+    "email": "sreebkavya@gmail.com",
+    "reservationCategory": "General",
+    "priorityChoices": {
+      "1": "Electronics and Communication Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "category": "General",
+    "isSpot": false,
+    "highestEducation": "Diploma",
+    "caste": "Nair",
+    "letRank": "2893"
+  },
+  {
+    "id": "btech_2026_reg_26801174_sivasachu3751@gmail.com_9037519033",
+    "caste": "Nair",
+    "letRank": "262",
+    "category": "EWS",
+    "isSpot": false,
+    "highestEducation": "Diploma",
+    "email": "sivasachu3751@gmail.com",
+    "reservationCategory": "EWS",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "submittedAt": {
+      "seconds": 1783008045,
+      "nanoseconds": 614000000
+    },
+    "experience": 1,
+    "age": 22,
+    "phone": "9037519033",
+    "name": "Siva P S ",
+    "company": "Tosil Systems Private limited ",
+    "religion": "Hindu",
+    "adharNumber": "",
+    "address": "Avittom, Panangode, Peyad, Trivandrum, 695573",
+    "distance": 4.5,
+    "mark": 90.15,
+    "letRegNo": "26801174"
+  },
+  {
+    "id": "btech_2026_reg_26801177_harisharipcd369@gmail.com_8136903935",
+    "caste": "Islam",
+    "letRank": "848",
+    "isSpot": false,
+    "category": "Muslim",
+    "highestEducation": "Diploma",
+    "reservationCategory": "Muslim",
+    "email": "harisharipcd369@gmail.com",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "submittedAt": {
+      "seconds": 1783015048,
+      "nanoseconds": 42000000
+    },
+    "experience": 2,
+    "name": "MOHAMMED HARIS A",
+    "age": 23,
+    "phone": "8136903935",
+    "company": "Tosil Systems",
+    "religion": "Muslim/Islam",
+    "address": "Common View, Ayirooppara, Pothencode P.O",
+    "adharNumber": "887215380472",
+    "mark": 77.42,
+    "distance": 7,
+    "letRegNo": "26801177"
+  },
+  {
+    "id": "btech_2026_reg_26801179_pdakshayani007@gmail.com_8688144535",
+    "priorityChoices": {
+      "1": "Electronics and Communication Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "email": "pdakshayani007@gmail.com",
+    "reservationCategory": "EWS",
+    "experience": 0,
+    "submittedAt": {
+      "seconds": 1783480128,
+      "nanoseconds": 62000000
+    },
+    "letRank": "341",
+    "caste": "Others",
+    "highestEducation": "Diploma",
+    "category": "EWS",
+    "isSpot": false,
+    "distance": 15,
+    "mark": 95,
+    "letRegNo": "26801179",
+    "phone": "8688144535",
+    "age": 21,
+    "name": "PEDIREDDI PAVAN DAKSHAYANI ",
+    "address": "1st floor Darussalam christ Nagar Vazhayila Trivandrum 695564",
+    "adharNumber": "805584532553",
+    "religion": "Hindu",
+    "company": "LPSC ISRO Trainee"
+  },
+  {
+    "id": "btech_2026_reg_26801183_aparanasamuvel@gmail.com_8590895273",
+    "category": "SC",
+    "isSpot": false,
+    "highestEducation": "Diploma",
+    "caste": "Pulaya",
+    "letRank": "3442",
+    "submittedAt": {
+      "seconds": 1783515419,
+      "nanoseconds": 238000000
+    },
+    "experience": 1,
+    "email": "aparanasamuvel@gmail.com",
+    "reservationCategory": "SC",
+    "priorityChoices": {
+      "1": "Electronics and Communication Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "company": "Mahindra & Mahindra ",
+    "adharNumber": "532227792719",
+    "address": "Charuvila puthen veedu karimanal, kuzhivila PO, pin no:695583 ",
+    "religion": "Hindu",
+    "age": 23,
+    "phone": "8590895273",
+    "name": " APARNA A",
+    "letRegNo": "26801183",
+    "distance": 70,
+    "mark": 67.7
+  },
+  {
+    "id": "btech_2026_reg_26801198_anandamoorthy06@gmail.com_7909295156",
+    "letRegNo": "26801198",
+    "distance": 11,
+    "mark": 63.27,
+    "company": "S S Mahindra ",
+    "religion": "Hindu",
+    "address": "S S Mahindra, Vazhayila, Peroorkada, Trivandrum-695005",
+    "adharNumber": "474111554051",
+    "age": 24,
+    "phone": "7909295156",
+    "name": "ANANDAMOORTHY S",
+    "submittedAt": {
+      "seconds": 1783353067,
+      "nanoseconds": 775000000
+    },
+    "experience": 1,
+    "email": "anandamoorthy06@gmail.com",
+    "reservationCategory": "Other Backward Hindu",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Electronics and Communication Engineering"
+    },
+    "category": "Other Backward Hindu",
+    "isSpot": false,
+    "highestEducation": "Diploma",
+    "caste": "Others",
+    "letRank": "2329"
+  },
+  {
+    "id": "btech_2026_reg_26801223_sudheerbp341@gmail.com_8281885113",
+    "letRank": "2434",
+    "caste": "Ezhava",
+    "highestEducation": "Diploma",
+    "category": "Ezhava",
+    "isSpot": false,
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "email": "sudheerbp341@gmail.com",
+    "reservationCategory": "Ezhava",
+    "experience": 2,
+    "submittedAt": {
+      "seconds": 1783514152,
+      "nanoseconds": 446000000
+    },
+    "phone": "8281885113",
+    "age": 27,
+    "name": "SUDHER BP",
+    "address": "ISRO DEPARTMENT OF SPACE VALIYAMALA P.O  THIRUVANANTHAPURAM 695547 KERALA INDIA",
+    "adharNumber": "204377607088",
+    "religion": "Hindu",
+    "company": "CTL INFOCOM PVT LTD",
+    "distance": 20,
+    "mark": 68,
+    "letRegNo": "26801223"
+  },
+  {
+    "id": "btech_2026_reg_26801226_nihalnazz0007@gmail.com_8086657850",
+    "letRank": "796",
+    "caste": "Mappila",
+    "highestEducation": "Diploma",
+    "isSpot": false,
+    "category": "Muslim",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "reservationCategory": "Muslim",
+    "email": "nihalnazz0007@gmail.com",
+    "experience": 1,
+    "submittedAt": {
+      "seconds": 1783534796,
+      "nanoseconds": 166000000
+    },
+    "name": "Nihal Noushad P",
+    "age": 24,
+    "phone": "8086657850",
+    "religion": "Muslim/Islam",
+    "adharNumber": "749493614002",
+    "address": "PRWA 70, KALPAKASSERI HOUSE, PETTAH,695024",
+    "company": "Mercedes Benz Coastal Star Private Limited ",
+    "mark": 62.8,
+    "distance": 9,
+    "letRegNo": "26801226"
+  },
+  {
+    "id": "btech_2026_reg_26801227_shifathasneem96@gmail.com_8606930466",
+    "experience": 2,
+    "submittedAt": {
+      "seconds": 1783497051,
+      "nanoseconds": 467000000
+    },
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "reservationCategory": "Muslim",
+    "email": "shifathasneem96@gmail.com",
+    "highestEducation": "Diploma",
+    "isSpot": false,
+    "category": "Muslim",
+    "letRank": "1192",
+    "caste": "Islam",
+    "letRegNo": "26801227",
+    "mark": 85.03,
+    "distance": 6.5,
+    "adharNumber": "819431213536",
+    "religion": "Muslim/Islam",
+    "address": "1D, Carnival Building, Technopark Phase 1, Trivandrum – 695581, Kerala, India",
+    "company": "NKORR Technologies private limited ",
+    "name": "Shifa thasneem T S ",
+    "phone": "8606930466",
+    "age": 22
+  },
+  {
+    "id": "btech_2026_reg_26801238_adhikrishna635@gmail.com_9995334216",
+    "experience": 1,
+    "submittedAt": {
+      "seconds": 1783094504,
+      "nanoseconds": 430000000
+    },
+    "priorityChoices": {
+      "1": "Electronics and Communication Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "email": "adhikrishna635@gmail.com",
+    "reservationCategory": "Ezhava",
+    "highestEducation": "Diploma",
+    "category": "Ezhava",
+    "isSpot": false,
+    "letRank": "3051",
+    "caste": "Ezhava",
+    "letRegNo": "26801238",
+    "distance": 10,
+    "mark": 75.43,
+    "address": "Madathikuzhy veedu ramapuram aralumoodu p o 695123",
+    "adharNumber": "789997529553",
+    "religion": "Hindu",
+    "company": "Hive Solar Power Solutions Pvt Ltd",
+    "phone": "9995334216",
+    "age": 23,
+    "name": "Adhithya Krishna S L"
+  },
+  {
+    "id": "btech_2026_reg_26801242_vipinsroottara@gmail.com_9447446331",
+    "caste": "Ezhava",
+    "letRank": "4056",
+    "category": "Ezhava",
+    "isSpot": false,
+    "highestEducation": "Diploma",
+    "email": "vipinsroottara@gmail.com",
+    "reservationCategory": "Ezhava",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Computer Science and Engineering"
+    },
+    "submittedAt": {
+      "seconds": 1783522548,
+      "nanoseconds": 148000000
+    },
+    "experience": 4,
+    "phone": "9447446331",
+    "age": 33,
+    "name": "VIPIN S R",
+    "company": "Kerala water authority",
+    "religion": "Hindu",
+    "address": "WWS KWA PATTOOR TRIVANDRUM",
+    "adharNumber": "345587002941",
+    "distance": 10,
+    "mark": 78.28,
+    "letRegNo": "26801242"
+  },
+  {
+    "id": "btech_2026_reg_26801289_geekel04@gmail.com_9446194741",
+    "letRegNo": "26801289",
+    "distance": 8,
+    "mark": 98,
+    "address": "TC 5/509 GOWREESAM. Thaikkattukonam, Sreekariyam",
+    "adharNumber": "422523472791",
+    "religion": "Hindu",
+    "company": "Logtech infoway Pvt. Ltd.",
+    "phone": "9446194741",
+    "age": 22,
+    "name": "Gokul Krishna L",
+    "experience": 0,
+    "submittedAt": {
+      "seconds": 1783592862,
+      "nanoseconds": 220000000
+    },
+    "priorityChoices": {
+      "1": "Electronics and Communication Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "email": "geekel04@gmail.com",
+    "reservationCategory": "Ezhava",
+    "highestEducation": "Diploma",
+    "category": "Ezhava",
+    "isSpot": false,
+    "letRank": "575",
+    "caste": "Ezhava"
+  },
+  {
+    "id": "btech_2026_reg_26801314_adinkumar45@gmail.com_7994213954",
+    "letRank": "506",
+    "caste": "Ezhava",
+    "highestEducation": "Diploma",
+    "isSpot": false,
+    "category": "Ezhava",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "reservationCategory": "Ezhava",
+    "email": "adinkumar45@gmail.com",
+    "experience": 1.9,
+    "submittedAt": {
+      "seconds": 1783239383,
+      "nanoseconds": 456000000
+    },
+    "name": "Adin N S",
+    "phone": "7994213954",
+    "age": 22,
+    "religion": "Hindu",
+    "adharNumber": "393949509272",
+    "address": "Kochikarikkulam perunguzhi ",
+    "company": "Acsia Technologies ",
+    "mark": 90.2,
+    "distance": 20,
+    "letRegNo": "26801314"
+  },
+  {
+    "id": "btech_2026_reg_26801321_sksethumadhavan@gmail.com_9496935402",
+    "mark": 72,
+    "distance": 9,
+    "letRegNo": "26801321",
+    "name": "Sethumadhavan Sk",
+    "phone": "9496935402",
+    "age": 24,
+    "company": "Mercedes benz ",
+    "address": "PRWA 70, KALPAKASSERI HOUSE, PETTAH,695024",
+    "adharNumber": "652310623522",
+    "religion": "Hindu",
+    "reservationCategory": "General",
+    "email": "sksethumadhavan@gmail.com",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Computer Science and Engineering"
+    },
+    "submittedAt": {
+      "seconds": 1783531954,
+      "nanoseconds": 753000000
+    },
+    "experience": 2.7,
+    "caste": "Nair",
+    "letRank": "2358",
+    "isSpot": false,
+    "category": "General",
+    "highestEducation": "Diploma"
+  },
+  {
+    "id": "btech_2026_reg_26801339_akshayabhi465@gmail.com_7994904495",
+    "letRank": "1665",
+    "caste": "Ezhava",
+    "highestEducation": "Diploma",
+    "isSpot": false,
+    "category": "Ezhava",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Electronics and Communication Engineering"
+    },
+    "reservationCategory": "Ezhava",
+    "email": "akshayabhi465@gmail.com",
+    "experience": 1,
+    "submittedAt": {
+      "seconds": 1783501444,
+      "nanoseconds": 368000000
+    },
+    "name": "Akshay Subhash",
+    "phone": "7994904495",
+    "age": 24,
+    "address": "Unni Nivas, Manchappara, Panthalacode P.O",
+    "adharNumber": "422572730846",
+    "religion": "Hindu",
+    "company": "LPSC ISRO Valiamala, Trivandrum ",
+    "mark": 64.79,
+    "distance": 23,
+    "letRegNo": "26801339"
+  },
+  {
+    "id": "btech_2026_reg_26801352_shaijuaparna037@gmail.com_9656084511",
+    "name": "APARNA B S",
+    "age": 21,
+    "phone": "9656084511",
+    "address": "1D, Carnival Building, Technopark Phase 1, Trivandrum – 695581, Kerala, India",
+    "religion": "Christian",
+    "adharNumber": "803773934444",
+    "company": "NKORR Technologies Pvt Ltd",
+    "mark": 85.78,
+    "distance": 6.6,
+    "letRegNo": "26801352",
+    "letRank": "1555",
+    "caste": "Nadar",
+    "highestEducation": "Diploma",
+    "isSpot": false,
+    "category": "OBC Christian",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "reservationCategory": "OBC Christian",
+    "email": "shaijuaparna037@gmail.com",
+    "experience": 1,
+    "submittedAt": {
+      "seconds": 1783495536,
+      "nanoseconds": 276000000
+    }
+  },
+  {
+    "id": "btech_2026_reg_26801359_albinrajr52@gmail.com_7994723176",
+    "highestEducation": "Diploma",
+    "isSpot": false,
+    "category": "Latin Catholic and Anglo Indian",
+    "letRank": "4382",
+    "caste": "Latin Catholic",
+    "experience": 1,
+    "submittedAt": {
+      "seconds": 1783403395,
+      "nanoseconds": 368000000
+    },
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Computer Science and Engineering"
+    },
+    "reservationCategory": "Latin Catholic and Anglo Indian",
+    "email": "albinrajr52@gmail.com",
+    "religion": "Christian",
+    "address": "RB Cottage, kodiyilkonam lane, kurisadi, Karyavattom P O, Thiruvananthapuram",
+    "adharNumber": "984839432456",
+    "company": "New tech Maruthi Service Centre",
+    "name": "Albin Raj R",
+    "phone": "7994723176",
+    "age": 22,
+    "letRegNo": "26801359",
+    "mark": 70.68,
+    "distance": 4.8
+  },
+  {
+    "id": "btech_2026_reg_26801370_mohammednoorudeen09@gmail.com_9074595036",
+    "email": "mohammednoorudeen09@gmail.com",
+    "reservationCategory": "Muslim",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Electronics and Communication Engineering"
+    },
+    "submittedAt": {
+      "seconds": 1783532686,
+      "nanoseconds": 862000000
+    },
+    "experience": 2,
+    "caste": "Islam",
+    "letRank": "840",
+    "category": "Muslim",
+    "isSpot": false,
+    "highestEducation": "Diploma",
+    "distance": 27,
+    "mark": 85,
+    "letRegNo": "26801370",
+    "age": 25,
+    "phone": "9074595036",
+    "name": "Mohammed Noorudeen N S",
+    "company": "LPSC Valiyamala ",
+    "address": "Liquid Propulsion Systems Centre (LPSC)- Thiruvananthapuram, Kerala, India",
+    "adharNumber": "280833251681",
+    "religion": "Muslim/Islam"
+  },
+  {
+    "id": "btech_2026_reg_26801385_raihanath.tech@gmail.com_9778176204",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "email": "raihanath.tech@gmail.com",
+    "reservationCategory": "Muslim",
+    "experience": 1,
+    "submittedAt": {
+      "seconds": 1783510700,
+      "nanoseconds": 673000000
+    },
+    "letRank": "2371",
+    "caste": "Islam",
+    "highestEducation": "Diploma",
+    "category": "Muslim",
+    "isSpot": false,
+    "distance": 6.6,
+    "mark": 74.29,
+    "letRegNo": "26801385",
+    "age": 21,
+    "phone": "9778176204",
+    "name": "RAIHANA RAHMAN",
+    "religion": "Muslim/Islam",
+    "address": "NKORR Technologies Pvt. Ltd, 1D - Carnival Building, Technopark Phase-1, Kazhakkoottam, Trivandrum – 695581",
+    "adharNumber": "414560250697",
+    "company": "NKORR Technologies Pvt. Ltd"
+  },
+  {
+    "id": "btech_2026_reg_26801387_amalmahesh42@gmail.com_7902318852",
+    "address": "Nirmala automobiles pvt ltd TC 10/147,Stadium road,Mannanthala,Thiruvananthapuram  PIN:695015",
+    "religion": "Christian",
+    "adharNumber": "284461701955",
+    "company": "Nirmala automobiles pvt ltd",
+    "age": 23,
+    "phone": "7902318852",
+    "name": "AMAL M",
+    "letRegNo": "26801387",
+    "distance": 8.7,
+    "mark": 69.5,
+    "highestEducation": "Diploma",
+    "category": "OBC Christian",
+    "isSpot": false,
+    "letRank": "4553",
+    "caste": "Cheramar",
+    "experience": 1,
+    "submittedAt": {
+      "seconds": 1783436154,
+      "nanoseconds": 456000000
+    },
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Electronics and Communication Engineering"
+    },
+    "email": "amalmahesh42@gmail.com",
+    "reservationCategory": "OBC Christian"
+  },
+  {
+    "id": "btech_2026_reg_26801393_ananthakrishnan0612@gmail.com_9497053327",
+    "email": "ananthakrishnan0612@gmail.com",
+    "reservationCategory": "General",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Computer Science and Engineering"
+    },
+    "submittedAt": {
+      "seconds": 1783592899,
+      "nanoseconds": 705000000
+    },
+    "experience": 0.7,
+    "caste": "Nair",
+    "letRank": "2327",
+    "category": "General",
+    "isSpot": false,
+    "highestEducation": "Diploma",
+    "distance": 10,
+    "mark": 72.01,
+    "letRegNo": "26801393",
+    "age": 25,
+    "phone": "9497053327",
+    "name": "Ananthakrishnan M",
+    "company": "Mercedes Benz coastal star private limited ",
+    "address": "Kochuveettil, vellaramkulam, channapetta P O,kollam",
+    "adharNumber": "978227382582",
+    "religion": "Hindu"
+  },
+  {
+    "id": "btech_2026_reg_26801397_binshad360@gmail.com_7306785984",
+    "mark": 87.495,
+    "distance": 6.6,
+    "letRegNo": "26801397",
+    "name": "BINSHAD K B",
+    "phone": "7306785984",
+    "age": 21,
+    "adharNumber": "803735596519",
+    "religion": "Muslim/Islam",
+    "address": "NKORR Technologies Pvt. Ltd, 1D - Carnival Building, Technopark Phase-1, Kazhakkoottam, Trivandrum – 695581",
+    "company": "NKORR Technologies Pvt. Ltd",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "reservationCategory": "Muslim",
+    "email": "binshad360@gmail.com",
+    "experience": 1,
+    "submittedAt": {
+      "seconds": 1783511756,
+      "nanoseconds": 939000000
+    },
+    "letRank": "444",
+    "caste": "Islam",
+    "highestEducation": "Diploma",
+    "isSpot": false,
+    "category": "Muslim"
+  },
+  {
+    "id": "btech_2026_reg_26801403_arjunbinucs00@gmail.com_7902241606",
+    "letRegNo": "26801403",
+    "mark": 76.57,
+    "distance": 5.4,
+    "address": "SKRA C 42/1, station kadav junction, shanthinagar road, thiruvananthapuram, 695583",
+    "adharNumber": "887746022271",
+    "religion": "Hindu",
+    "company": "Vikram sarabhai memorial society",
+    "name": "Arjun Binu",
+    "age": 26,
+    "phone": "7902241606",
+    "experience": 3,
+    "submittedAt": {
+      "seconds": 1783440414,
+      "nanoseconds": 45000000
+    },
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Electronics and Communication Engineering"
+    },
+    "reservationCategory": "Other Backward Hindu",
+    "email": "arjunbinucs00@gmail.com",
+    "highestEducation": "Diploma",
+    "isSpot": false,
+    "category": "Other Backward Hindu",
+    "letRank": "1044",
+    "caste": "Others"
+  },
+  {
+    "id": "btech_2026_reg_26801411_shloks2014@gmail.com_9970553946",
+    "adharNumber": "933425321540",
+    "religion": "Hindu",
+    "address": "SC no:VS37183, EMRD/CASG/ESAE , BLDG NO 12, 70 ACRE, VSSC ISRO P O THIRUVANANTHAPURAM KERALA 695022",
+    "company": "INDIAN SPACE RESEARCH ORGANISATION - VSSC",
+    "age": 27,
+    "phone": "9970553946",
+    "name": "SHIRISKAR SHLOK SHARAD ",
+    "letRegNo": "26801411",
+    "distance": 9.5,
+    "mark": 75,
+    "highestEducation": "Diploma",
+    "category": "Central govt. employee",
+    "isSpot": false,
+    "letRank": "285",
+    "caste": "Others",
+    "experience": 3.2,
+    "submittedAt": {
+      "seconds": 1783409502,
+      "nanoseconds": 874000000
+    },
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Computer Science and Engineering"
+    },
+    "email": "shloks2014@gmail.com",
+    "reservationCategory": "Central govt. employee"
+  },
+  {
+    "id": "btech_2026_reg_26801426_vibinvasanth2255@gmail.com_8078071210",
+    "company": "VSSC ( Contract)",
+    "adharNumber": "630760895821",
+    "address": "Pushpa Vasantham ,RRWA 46, Vazhayila, Peroorkada, tvm-05",
+    "religion": "Hindu",
+    "phone": "8078071210",
+    "age": 30,
+    "name": "VIBIN VASANTH ",
+    "letRegNo": "26801426",
+    "distance": 7,
+    "mark": 68,
+    "category": "Ezhava",
+    "isSpot": false,
+    "highestEducation": "Diploma",
+    "caste": "Ezhava",
+    "letRank": "3158",
+    "submittedAt": {
+      "seconds": 1783348251,
+      "nanoseconds": 381000000
+    },
+    "experience": 7,
+    "email": "vibinvasanth2255@gmail.com",
+    "reservationCategory": "Ezhava",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Electronics and Communication Engineering"
+    }
+  },
+  {
+    "id": "btech_2026_reg_26801428_adarshreji08@gmail.com_8590699763",
+    "mark": 74.86,
+    "distance": 10,
+    "letRegNo": "26801428",
+    "name": "Adharsh Reji",
+    "phone": "8590699763",
+    "age": 23,
+    "company": "VSSC",
+    "adharNumber": "365127609655",
+    "religion": "Hindu",
+    "address": "",
+    "reservationCategory": "Viswakarma",
+    "email": "adarshreji08@gmail.com",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Computer Science and Engineering"
+    },
+    "submittedAt": {
+      "seconds": 1783324258,
+      "nanoseconds": 853000000
+    },
+    "experience": 2,
+    "caste": "Viswakarma",
+    "letRank": "1169",
+    "isSpot": false,
+    "category": "Viswakarma",
+    "highestEducation": "Diploma"
+  },
+  {
+    "id": "btech_2026_reg_26801438_ajayc9090@gmail.com_8943706586",
+    "caste": "Nair",
+    "letRank": "877",
+    "category": "General",
+    "isSpot": false,
+    "highestEducation": "Diploma",
+    "email": "ajayc9090@gmail.com",
+    "reservationCategory": "General",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "submittedAt": {
+      "seconds": 1783496577,
+      "nanoseconds": 296000000
+    },
+    "experience": 7,
+    "age": 29,
+    "phone": "8943706586",
+    "name": "AJAY C",
+    "company": "NKORR Technologies Pvt Ltd",
+    "address": "1D, Carnival Building, Technopark Phase 1, Trivandrum – 695581, Kerala, India",
+    "adharNumber": "540053479955",
+    "religion": "Hindu",
+    "distance": 6.6,
+    "mark": 84.74,
+    "letRegNo": "26801438"
+  },
+  {
+    "id": "btech_2026_reg_26801455_anassheik200@gmail.com_6235103900",
+    "adharNumber": "259290706325",
+    "religion": "Muslim/Islam",
+    "address": "NKORR Technologies Pvt. Ltd, 1D - Carnival Building, Technopark Phase-1, Kazhakkoottam, Trivandrum – 695581",
+    "company": "NKORR Technologies Pvt. Ltd",
+    "name": "Anas Shaikh Chenothuparambil",
+    "phone": "6235103900",
+    "age": 22,
+    "letRegNo": "26801455",
+    "mark": 81.7,
+    "distance": 6.6,
+    "highestEducation": "Diploma",
+    "isSpot": false,
+    "category": "Muslim",
+    "letRank": "399",
+    "caste": "Islam",
+    "experience": 1,
+    "submittedAt": {
+      "seconds": 1783511361,
+      "nanoseconds": 942000000
+    },
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "reservationCategory": "Muslim",
+    "email": "anassheik200@gmail.com"
+  },
+  {
+    "id": "btech_2026_reg_26801464_deepuvnair2002@gmail.com_7356682559",
+    "mark": 67,
+    "distance": 40,
+    "letRegNo": "26801464",
+    "name": "DEEPU V NAIR",
+    "phone": "7356682559",
+    "age": 24,
+    "religion": "Hindu",
+    "adharNumber": "921051682680",
+    "address": "LALU BHAVAN CHULLIMANOOR",
+    "company": "LALU JOSE",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Electronics and Communication Engineering"
+    },
+    "reservationCategory": "General",
+    "email": "deepuvnair2002@gmail.com",
+    "experience": 1,
+    "submittedAt": {
+      "seconds": 1783528385,
+      "nanoseconds": 843000000
+    },
+    "letRank": "1545",
+    "caste": "Nair",
+    "highestEducation": "Diploma",
+    "isSpot": false,
+    "category": "General"
+  },
+  {
+    "id": "btech_2026_reg_26801487_sr18adithyan@gmail.com_9633309755",
+    "letRegNo": "26801487",
+    "mark": 65.2,
+    "distance": 10.3,
+    "adharNumber": "422310495406",
+    "religion": "Hindu",
+    "address": "Keltron ITBG , Vellayambalam , Trivandrum",
+    "company": "ARMTECH IT SOLUTIONS",
+    "name": "ADITHYAN S R ",
+    "phone": "9633309755",
+    "age": 24,
+    "experience": 1.8,
+    "submittedAt": {
+      "seconds": 1783414172,
+      "nanoseconds": 350000000
+    },
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "reservationCategory": "Viswakarma",
+    "email": "sr18adithyan@gmail.com",
+    "highestEducation": "Diploma",
+    "isSpot": false,
+    "category": "Viswakarma",
+    "letRank": "1724",
+    "caste": "Viswakarma"
+  },
+  {
+    "id": "btech_2026_reg_26803002_ganeshkumar10170@gmail.com_6282562207",
+    "distance": 22,
+    "mark": 65,
+    "letRegNo": "26803002",
+    "phone": "6282562207",
+    "age": 25,
+    "name": "Ganesh A",
+    "address": "Samithy Nagar, Ambalamukku, Thiruvananthapuram, Kerala 695005, India",
+    "adharNumber": "716957124372",
+    "religion": "Hindu",
+    "company": "Secure solutions ",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Mechanical Engineering",
+      "3": "Electronics and Communication Engineering"
+    },
+    "email": "ganeshkumar10170@gmail.com",
+    "reservationCategory": "General",
+    "experience": 3,
+    "submittedAt": {
+      "seconds": 1783419916,
+      "nanoseconds": 128000000
+    },
+    "letRank": "3601",
+    "caste": "Nair",
+    "highestEducation": "Diploma",
+    "category": "General",
+    "isSpot": false
+  },
+  {
+    "id": "btech_2026_reg_26804181_anwarsherief08@gmail.com_7558837880",
+    "mark": 69,
+    "distance": 5.5,
+    "letRegNo": "26804181",
+    "name": "Anwar Sherief ",
+    "phone": "7558837880",
+    "age": 25,
+    "address": "Porattu House, Karuvatta P.O Alappuzha  Pin 690517",
+    "adharNumber": "213000897386",
+    "religion": "Muslim/Islam",
+    "company": "ICFOSS ",
+    "priorityChoices": {
+      "1": "Electronics and Communication Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "reservationCategory": "Muslim",
+    "email": "anwarsherief08@gmail.com",
+    "experience": 4,
+    "submittedAt": {
+      "seconds": 1783587750,
+      "nanoseconds": 175000000
+    },
+    "letRank": "1183",
+    "caste": "Islam",
+    "highestEducation": "Diploma",
+    "isSpot": false,
+    "category": "Muslim"
+  },
+  {
+    "id": "btech_2026_reg_26808655_eldhoshamon888@gmail.com_9544063925",
+    "submittedAt": {
+      "seconds": 1783754990,
+      "nanoseconds": 632000000
+    },
+    "experience": 2,
+    "email": "eldhoshamon888@gmail.com",
+    "reservationCategory": "General",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Electrical and Electronics Engineering",
+      "3": "Civil Engineering"
+    },
+    "category": "General",
+    "isSpot": false,
+    "highestEducation": "Diploma",
+    "caste": "Jacobite Syrian",
+    "letRank": "3735",
+    "letRegNo": "26808655",
+    "distance": 22,
+    "mark": 74,
+    "company": "Popular Hyundai Thrissur",
+    "adharNumber": "382676254804",
+    "religion": "Christian",
+    "address": "POPULAR HYUNDAI  Popular Motor World Private Limited  Building No: 9/30 / A,B NH 47, Mannuthy Bye Pass,  Kuttanellur P.O., Thrissur – 680014  Gst no:32AADCP6327K1ZE ",
+    "age": 22,
+    "phone": "9544063925",
+    "name": "ELDHO SHAMON"
+  },
+  {
+    "id": "btech_2026_reg_let 16261234_kannanunni062@gmail.com_9567018318",
+    "letRegNo": "LET 16261234",
+    "mark": 78,
+    "distance": 10,
+    "company": "",
+    "religion": "Hindu",
+    "adharNumber": "",
+    "address": "",
+    "name": "KANNANUNNI G S",
+    "phone": "9567018318",
+    "age": null,
+    "submittedAt": {
+      "seconds": 1783005026,
+      "nanoseconds": 11000000
+    },
+    "experience": null,
+    "reservationCategory": "General",
+    "email": "kannanunni062@gmail.com",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Mechanical Engineering",
+      "3": "Electronics and Communication Engineering"
+    },
+    "isSpot": false,
+    "category": "General",
+    "highestEducation": "BSc",
+    "caste": "Nair",
+    "letRank": "4"
+  },
+  {
+    "id": "btech_2026_reg_let26801156_abhishekabhishek4363@gmail.com_6282597658",
+    "highestEducation": "Diploma",
+    "isSpot": false,
+    "category": "EWS",
+    "letRank": "3064",
+    "caste": "Nair",
+    "experience": 1.9,
+    "submittedAt": {
+      "seconds": 1783173466,
+      "nanoseconds": 520000000
+    },
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "reservationCategory": "EWS",
+    "email": "abhishekabhishek4363@gmail.com",
+    "address": "JV83+C29, Technocity Campus Mangalapuram Thonnakkal PO, Veiloor, Kerala 695317",
+    "religion": "Hindu",
+    "adharNumber": "587420226433",
+    "company": "Digital University of Kerala",
+    "name": "ABHISHEK S",
+    "phone": "6282597658",
+    "age": 24,
+    "letRegNo": "LET26801156",
+    "mark": 69.45,
+    "distance": 13
+  },
+  {
+    "id": "btech_2026_reg_let26801257_bsabhijith8@gmail.com_6282072026",
+    "mark": 69.35,
+    "distance": 32,
+    "letRegNo": "LET26801257",
+    "name": "ABHIJITH BS",
+    "phone": "6282072026",
+    "age": 23,
+    "company": "ECMF Industries ",
+    "address": "BS NIVAS KUNNUMMEL KILIMANOOR P.O  695601",
+    "adharNumber": "949483851577",
+    "religion": "Hindu",
+    "reservationCategory": "Other Backward Hindu",
+    "email": "bsabhijith8@gmail.com",
+    "priorityChoices": {
+      "1": "Electronics and Communication Engineering",
+      "2": "Mechanical Engineering",
+      "3": "Computer Science and Engineering"
+    },
+    "submittedAt": {
+      "seconds": 1783448408,
+      "nanoseconds": 133000000
+    },
+    "experience": 2,
+    "caste": "Ezhava",
+    "letRank": "1956",
+    "isSpot": false,
+    "category": "Other Backward Hindu",
+    "highestEducation": "Diploma"
+  },
+  {
+    "id": "btech_2026_spot_0_achuappusouravsunil@gmail.com_8848597059",
+    "letRank": "0",
+    "caste": "Ezhava",
+    "highestEducation": "Diploma",
+    "category": "Ezhava",
+    "isSpot": true,
+    "priorityChoices": {
+      "1": "Electronics and Communication Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "email": "achuappusouravsunil@gmail.com",
+    "reservationCategory": "Ezhava",
+    "experience": 1,
+    "submittedAt": {
+      "seconds": 1784280921,
+      "nanoseconds": 655000000
+    },
+    "age": 24,
+    "phone": "8848597059",
+    "name": "Sourav sunil ",
+    "adharNumber": "616082120713",
+    "religion": "Hindu",
+    "address": "Sachin bhavan kolladathusseril Thiruvanadoor po",
+    "company": "Government polytechnic College nattakam",
+    "distance": 65,
+    "mark": 71.4,
+    "letRegNo": "0"
+  },
+  {
+    "id": "btech_2026_spot_0_aranuroop3@gmail.com_7902686702",
+    "highestEducation": "Diploma",
+    "isSpot": true,
+    "category": "Ezhava",
+    "letRank": "0",
+    "caste": "Ezhava",
+    "experience": 3,
+    "submittedAt": {
+      "seconds": 1784005619,
+      "nanoseconds": 153000000
+    },
+    "priorityChoices": {
+      "1": "Electronics and Communication Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "reservationCategory": "Ezhava",
+    "email": "aranuroop3@gmail.com",
+    "adharNumber": "742294983458",
+    "religion": "Hindu",
+    "address": "TATA ELXSI, Phase 1, Technopark, Kazhakootam, Trivandrum ",
+    "company": "TATA ELXSI",
+    "name": "ANUROOP A R",
+    "age": 24,
+    "phone": "7902686702",
+    "letRegNo": "0",
+    "mark": 74.76,
+    "distance": 6
+  },
+  {
+    "id": "btech_2026_spot_0_joshyjismon55@gmail.com_7909195462",
+    "letRank": "0",
+    "caste": "Roman Catholic",
+    "highestEducation": "Diploma",
+    "category": "EWS",
+    "isSpot": true,
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Computer Science and Engineering"
+    },
+    "email": "joshyjismon55@gmail.com",
+    "reservationCategory": "EWS",
+    "experience": 266,
+    "submittedAt": {
+      "seconds": 1783990442,
+      "nanoseconds": 175000000
+    },
+    "age": 22,
+    "phone": "7909195462",
+    "name": "Jismon Joshy",
+    "adharNumber": "478989880097",
+    "religion": "Christian",
+    "address": "Arikkadan (H), Mupliyam P.O Thrissur, Pin 680312",
+    "company": "Eram Motors ",
+    "distance": 70,
+    "mark": 74.47,
+    "letRegNo": "0"
+  },
+  {
+    "id": "btech_2026_spot_0_karthikprasannan974@gmail.com_9746531452",
+    "name": "Karthik P R",
+    "phone": "9746531452",
+    "age": 23,
+    "company": "VSSC (Contract)",
+    "adharNumber": "962810634414",
+    "religion": "Hindu",
+    "address": "Karthika Malackal PO Panappamkunnu Thiruvananthapuram",
+    "mark": 72.2,
+    "distance": 7,
+    "letRegNo": "0",
+    "caste": "Ezhava",
+    "letRank": "0",
+    "isSpot": true,
+    "category": "Other Backward Hindu",
+    "highestEducation": "Diploma",
+    "reservationCategory": "Other Backward Hindu",
+    "email": "karthikprasannan974@gmail.com",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Computer Science and Engineering"
+    },
+    "submittedAt": {
+      "seconds": 1783788439,
+      "nanoseconds": 396000000
+    },
+    "experience": 1.5
+  },
+  {
+    "id": "btech_2026_spot_0_mbnizamudeen@gmail.com_9895390375",
+    "letRegNo": "0",
+    "distance": 7.5,
+    "mark": 71.714,
+    "adharNumber": "936843890760",
+    "address": "Chandanathope, TC XI/2272, Chenkottukonam, Chempazhanthy P.O, Thiruvananthapuram, PIN:695587",
+    "religion": "Muslim/Islam",
+    "company": "Vikram Sarabhai Space Centre, ISRO",
+    "phone": "9895390375",
+    "age": 45,
+    "name": "NIZAMUDEEN B",
+    "experience": 18,
+    "submittedAt": {
+      "seconds": 1783783072,
+      "nanoseconds": 849000000
+    },
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Electronics and Communication Engineering"
+    },
+    "email": "mbnizamudeen@gmail.com",
+    "reservationCategory": "Central govt. employee",
+    "highestEducation": "Diploma",
+    "category": "Central govt. employee",
+    "isSpot": true,
+    "letRank": "0",
+    "caste": "Islam"
+  },
+  {
+    "id": "btech_2026_spot_0_mmrdimensional@gmail.com_9961624668",
+    "isSpot": true,
+    "category": "General",
+    "highestEducation": "Diploma",
+    "caste": "Roman Catholic",
+    "letRank": "0",
+    "submittedAt": {
+      "seconds": 1784128636,
+      "nanoseconds": 61000000
+    },
+    "experience": 1,
+    "reservationCategory": "General",
+    "email": "mmrdimensional@gmail.com",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "company": "TRENSER TECHNOLOGY SOLUTIONS",
+    "adharNumber": "444596320164",
+    "religion": "Christian",
+    "address": "Thiruvananthapuram",
+    "name": "Melwin Joshy",
+    "phone": "9961624668",
+    "age": 21,
+    "letRegNo": "0",
+    "mark": 89.3,
+    "distance": 6.9
+  },
+  {
+    "id": "btech_2026_spot_0_muhammadrashiduh02@gmail.com_8891399656",
+    "letRegNo": "0",
+    "mark": 89.3,
+    "distance": 6.6,
+    "adharNumber": "474055332380",
+    "religion": "Muslim/Islam",
+    "address": "NKORR Technologies Pvt. Ltd, 1D - Carnival Building, Technopark Phase-1, Kazhakkoottam, Trivandrum ,PIN 695581",
+    "company": "NKORR Technologies Pvt. Ltd",
+    "name": "Muhammad Rashid U H",
+    "phone": "8891399656",
+    "age": 21,
+    "experience": 0.1,
+    "submittedAt": {
+      "seconds": 1784283276,
+      "nanoseconds": 284000000
+    },
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "reservationCategory": "Muslim",
+    "email": "muhammadrashiduh02@gmail.com",
+    "highestEducation": "Diploma",
+    "isSpot": true,
+    "category": "Muslim",
+    "letRank": "0",
+    "caste": "Islam"
+  },
+  {
+    "id": "btech_2026_spot_0_newtham29@gmail.com_8714762371",
+    "category": "Kudumbi",
+    "isSpot": true,
+    "highestEducation": "Diploma",
+    "caste": "Others",
+    "letRank": "0",
+    "submittedAt": {
+      "seconds": 1783786384,
+      "nanoseconds": 520000000
+    },
+    "experience": 1,
+    "email": "newtham29@gmail.com",
+    "reservationCategory": "Kudumbi",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "company": " Nkorr Technologies Pvt Ltd",
+    "adharNumber": "577023989991",
+    "religion": "Hindu",
+    "address": "1D, Carnival Building, Technopark Phase 1, Trivandrum – 695581, Kerala, India",
+    "phone": "8714762371",
+    "age": 20,
+    "name": "GOUTHAM T G",
+    "letRegNo": "0",
+    "distance": 6.6,
+    "mark": 72.675
+  },
+  {
+    "id": "btech_2026_spot_0_niyasmoithu123@gmail.com_9947418724",
+    "highestEducation": "Diploma",
+    "isSpot": true,
+    "category": "Muslim",
+    "letRank": "0",
+    "caste": "Islam",
+    "experience": 1,
+    "submittedAt": {
+      "seconds": 1784285099,
+      "nanoseconds": 287000000
+    },
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "reservationCategory": "Muslim",
+    "email": "niyasmoithu123@gmail.com",
+    "adharNumber": "256835800705",
+    "religion": "Muslim/Islam",
+    "address": "TC 33/286, Behind Health N Fit Ladies Gym, Kazhakuttam Old Airport Road,Kazhakkoottam, Thiruvananthapuram, Kerala - 695582",
+    "company": "Trenser Technology Solutions (P) Ltd",
+    "name": "NIYASUDHEEN MOITHU",
+    "phone": "9947418724",
+    "age": 23,
+    "letRegNo": "0",
+    "mark": 95.9,
+    "distance": 7.2
+  },
+  {
+    "id": "btech_2026_spot_0_ohmnathshenoy001@gmail.com_7356682201",
+    "isSpot": true,
+    "category": "General",
+    "highestEducation": "Diploma",
+    "caste": "Brahmin",
+    "letRank": "0",
+    "submittedAt": {
+      "seconds": 1783783637,
+      "nanoseconds": 935000000
+    },
+    "experience": 1.5,
+    "reservationCategory": "General",
+    "email": "ohmnathshenoy001@gmail.com",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Electronics and Communication Engineering"
+    },
+    "company": "VSSC trivandrum ",
+    "religion": "Hindu",
+    "address": "Ohmnivas(H) Kumaranalloor p. o Kottayam 686016",
+    "adharNumber": "237778853943",
+    "name": "N M Ohmnath Shenoy",
+    "phone": "7356682201",
+    "age": 25,
+    "letRegNo": "0",
+    "mark": 61.75,
+    "distance": 10
+  },
+  {
+    "id": "btech_2026_spot_0_rakshithb89@gmail.com_9544946784",
+    "highestEducation": "Diploma",
+    "isSpot": true,
+    "category": "Ezhava",
+    "letRank": "0",
+    "caste": "Thiyya",
+    "experience": 0.1,
+    "submittedAt": {
+      "seconds": 1784282987,
+      "nanoseconds": 131000000
+    },
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "reservationCategory": "Ezhava",
+    "email": "rakshithb89@gmail.com",
+    "adharNumber": "744254116730",
+    "religion": "Hindu",
+    "address": "NKORR Technologies Pvt. Ltd, 1D - Carnival Building, Technopark Phase-1, Kazhakkoottam, Trivandrum ,PIN 695581",
+    "company": "NKORR Technologies Pvt. Ltd",
+    "name": "Rakshith B",
+    "age": 20,
+    "phone": "9544946784",
+    "letRegNo": "0",
+    "mark": 78.185,
+    "distance": 6.6
+  },
+  {
+    "id": "btech_2026_spot_0_samson53538@gmail.com_8075019741",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "reservationCategory": "OBC Christian",
+    "email": "samson53538@gmail.com",
+    "experience": 0,
+    "submittedAt": {
+      "seconds": 1784186601,
+      "nanoseconds": 481000000
+    },
+    "letRank": "1773",
+    "caste": "Others",
+    "highestEducation": "Diploma",
+    "isSpot": true,
+    "category": "OBC Christian",
+    "mark": 72,
+    "distance": 7,
+    "letRegNo": "0",
+    "name": "SAMSON S SEEMON",
+    "phone": "8075019741",
+    "age": 22,
+    "adharNumber": "672186826480",
+    "religion": "Christian",
+    "address": "KP 5/360D,KARIKKAKAM, KARAKULAM ",
+    "company": "ECS FIN"
+  },
+  {
+    "id": "btech_2026_spot_0_sasigsf@gmail.com_9746161970",
+    "mark": 47.2,
+    "distance": 0,
+    "letRegNo": "0",
+    "name": "AKSHAY S NAIR",
+    "phone": "9746161970",
+    "age": 25,
+    "adharNumber": "743283545657",
+    "religion": "Hindu",
+    "address": "Cordial Shroffs 4A,Thycaud",
+    "company": "NO BROKER",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Electronics and Communication Engineering"
+    },
+    "reservationCategory": "General",
+    "email": "sasigsf@gmail.com",
+    "experience": 1,
+    "submittedAt": {
+      "seconds": 1784218621,
+      "nanoseconds": 748000000
+    },
+    "letRank": "0",
+    "caste": "Nair",
+    "highestEducation": "BE",
+    "isSpot": true,
+    "category": "General"
+  },
+  {
+    "id": "btech_2026_spot_0_shibukumar8752@gmail.com_8921511055",
+    "letRegNo": "0",
+    "mark": 84.17,
+    "distance": 12,
+    "adharNumber": "501247367175",
+    "religion": "Hindu",
+    "address": "KUMAR BHAVAN, RIVER GARDENCE-3, EANIKKARA, KARAKULAM PO-695564, TRIVANDRUM",
+    "company": "Centre for Development of Imaging Technology, C-DIT",
+    "name": "SHIBU L",
+    "phone": "8921511055",
+    "age": 30,
+    "experience": 1,
+    "submittedAt": {
+      "seconds": 1783921020,
+      "nanoseconds": 876000000
+    },
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "reservationCategory": "SC",
+    "email": "shibukumar8752@gmail.com",
+    "highestEducation": "Diploma",
+    "isSpot": true,
+    "category": "SC",
+    "letRank": "0",
+    "caste": "Others"
+  },
+  {
+    "id": "btech_2026_spot_0_tvibhin@gmail.com_8884818146",
+    "caste": "Nadar",
+    "letRank": "0",
+    "isSpot": true,
+    "category": "OBC Christian",
+    "highestEducation": "Diploma",
+    "reservationCategory": "OBC Christian",
+    "email": "tvibhin@gmail.com",
+    "priorityChoices": {
+      "1": "Computer Science and Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Mechanical Engineering"
+    },
+    "submittedAt": {
+      "seconds": 1783934371,
+      "nanoseconds": 939000000
+    },
+    "experience": 20,
+    "name": "Vibhin T",
+    "age": 51,
+    "phone": "8884818146",
+    "company": "Infosys Ltd",
+    "adharNumber": "324725825063",
+    "religion": "Christian",
+    "address": "Mukkampalavila Veedu. Kochottukonam, Mariyapuram, TVM Dist , Kerala _695122",
+    "mark": 76,
+    "distance": 5,
+    "letRegNo": "0"
+  },
+  {
+    "id": "btech_2026_spot_16262983_vishnumukundan2021@gmail.com_9400387476",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Computer Science and Engineering"
+    },
+    "reservationCategory": "DTE Staff",
+    "email": "vishnumukundan2021@gmail.com",
+    "experience": 2,
+    "submittedAt": {
+      "seconds": 1784213359,
+      "nanoseconds": 180000000
+    },
+    "letRank": "2419",
+    "caste": "Ezhava",
+    "highestEducation": "Diploma",
+    "isSpot": true,
+    "category": "DTE Staff",
+    "mark": 82,
+    "distance": 70,
+    "letRegNo": "16262983",
+    "name": "Vishnu.M",
+    "phone": "9400387476",
+    "age": 33,
+    "address": "Pochetharayil Erickavu po karthikappally Alappuzha 690516",
+    "religion": "Hindu",
+    "adharNumber": "920986549578",
+    "company": "WPTC Kayamkulam "
+  },
+  {
+    "id": "btech_2026_spot_26801146_sk785045@gmail.com_6203012639",
+    "name": "Sonu Kumar Singh ",
+    "phone": "6203012639",
+    "age": 31,
+    "company": "VSSC Trivandrum ",
+    "religion": "Hindu",
+    "address": "Village -Hazari Dhamna,po-singhrawan,dist-Hazaribagh, Jharkhand -825405",
+    "adharNumber": "953479004164",
+    "mark": 76.3,
+    "distance": 10,
+    "letRegNo": "26801146",
+    "caste": "Others",
+    "letRank": "446",
+    "isSpot": true,
+    "category": "Central govt. employee",
+    "highestEducation": "Diploma",
+    "reservationCategory": "Central govt. employee",
+    "email": "sk785045@gmail.com",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Computer Science and Engineering"
+    },
+    "submittedAt": {
+      "seconds": 1784215252,
+      "nanoseconds": 640000000
+    },
+    "experience": 3.5
+  },
+  {
+    "id": "btech_2026_spot_26801270_mohanprajapati.2121@gmail.com_8890350192",
+    "phone": "8890350192",
+    "age": 32,
+    "name": "MOHAN RAM",
+    "company": "VSSC, ISRO",
+    "religion": "Hindu",
+    "address": "C-270, VSSC STAFF QUARTERS, PALLITHURA TRIVANDRUM ",
+    "adharNumber": "916094677339",
+    "distance": 6,
+    "mark": 82.1,
+    "letRegNo": "26801270",
+    "caste": "Others",
+    "letRank": "180",
+    "category": "Central govt. employee",
+    "isSpot": true,
+    "highestEducation": "Diploma",
+    "email": "mohanprajapati.2121@gmail.com",
+    "reservationCategory": "Central govt. employee",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Electronics and Communication Engineering"
+    },
+    "submittedAt": {
+      "seconds": 1783786615,
+      "nanoseconds": 437000000
+    },
+    "experience": 5.5
+  },
+  {
+    "id": "btech_2026_spot_26801388_amalkrkrishna6@gmail.com_6235114058",
+    "isSpot": true,
+    "category": "General",
+    "highestEducation": "Diploma",
+    "caste": "Nair",
+    "letRank": "3680",
+    "submittedAt": {
+      "seconds": 1784103957,
+      "nanoseconds": 767000000
+    },
+    "experience": 1,
+    "reservationCategory": "General",
+    "email": "amalkrkrishna6@gmail.com",
+    "priorityChoices": {
+      "1": "Mechanical Engineering",
+      "2": "Electronics and Communication Engineering",
+      "3": "Computer Science and Engineering"
+    },
+    "company": "Pulivilakath Engineering Services",
+    "adharNumber": "861706034458",
+    "address": "Thiruvathira , Thottakkadu , Thottakkadu P/O Kallambalm-TVM",
+    "religion": "Hindu",
+    "name": "Amal Krishna KR",
+    "phone": "6235114058",
+    "age": 25,
+    "letRegNo": "26801388",
+    "mark": 82.3,
+    "distance": 11
+  },
+  {
+    "id": "btech_2026_spot_26801421_ashikmohdd111@gmail.com_9605619256",
+    "company": "Deyoze Automation Private Limited",
+    "adharNumber": "236789425429",
+    "religion": "Muslim/Islam",
+    "address": "vazhottu pachayil veedu cherukulam p.o chunda, 691306",
+    "phone": "9605619256",
+    "age": 25,
+    "name": "Muhammed Ashik S",
+    "letRegNo": "26801421",
+    "distance": 36,
+    "mark": 75.62,
+    "category": "Muslim",
+    "isSpot": true,
+    "highestEducation": "Diploma",
+    "caste": "Islam",
+    "letRank": "1536",
+    "submittedAt": {
+      "seconds": 1783784405,
+      "nanoseconds": 266000000
+    },
+    "experience": 1,
+    "email": "ashikmohdd111@gmail.com",
+    "reservationCategory": "Muslim",
+    "priorityChoices": {
+      "1": "Electronics and Communication Engineering",
+      "2": "Computer Science and Engineering",
+      "3": "Mechanical Engineering"
+    }
+  }
+]

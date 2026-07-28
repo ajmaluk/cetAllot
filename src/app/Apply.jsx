@@ -78,7 +78,7 @@ const StatusScreen = ({ status, program }) => {
 };
 
 export default function Apply() {
-  const [degreeType, setDegreeType] = useState("btech");
+  const [degreeType, setDegreeType] = useState("mtech");
   // Three states: "coming" | "open" | "closed"
   const [btechStatus, setBtechStatus] = useState("open");
   const [mtechStatus, setMtechStatus] = useState("coming");

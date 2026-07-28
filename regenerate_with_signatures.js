@@ -1,61 +1,425 @@
 // regenerate_with_signatures.js
-import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { jsPDF } from "jspdf";
 import fs from 'fs';
 import * as XLSX from 'xlsx';
-import { calculateAllotment } from './src/app/utils/calculateAllotment.js';
 
-const firebaseConfig = {
-  apiKey: process.env.VITE_FIREBASE_API_KEY,
-  authDomain: process.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.VITE_FIREBASE_APP_ID,
-  measurementId: process.env.VITE_FIREBASE_MEASUREMENT_ID,
+const admittedList = [
+  { name: "Siva P S", branch: "Computer Science and Engineering" },
+  { name: "Mohammed Noorudeen N S", branch: "Mechanical Engineering" },
+  { name: "BINSHAD K B", branch: "Computer Science and Engineering" },
+  { name: "SHIRISKAR SHLOK SHARAD", branch: "Mechanical Engineering" },
+  { name: "Lijo Varghese", branch: "Mechanical Engineering" },
+  { name: "Anas Shaikh Chenothuparambil", branch: "Computer Science and Engineering" },
+  { name: "SUMESH S R", branch: "Computer Science and Engineering" },
+  { name: "Kanhaiya Kumar", branch: "Mechanical Engineering" },
+  { name: "ANANDAMOORTHY S", branch: "Mechanical Engineering" },
+  { name: "ARJUN B RAJ", branch: "Electronics and Communication Engineering" },
+  { name: "Adharsh Reji", branch: "Mechanical Engineering" },
+  { name: "Sana Mol P.A", branch: "Computer Science and Engineering" },
+  { name: "Midhun A Madhu", branch: "Electronics and Communication Engineering" },
+  { name: "MUHAMMED AFSAL A", branch: "Computer Science and Engineering" },
+  { name: "Bineesh B", branch: "Electronics and Communication Engineering" },
+  { name: "VIBIN VASANTH", branch: "Mechanical Engineering" },
+  { name: "REMYA LAZAR", branch: "Electronics and Communication Engineering" },
+  { name: "VIPIN S R", branch: "Mechanical Engineering" },
+  { name: "MOHAMMED HARIS A", branch: "Computer Science and Engineering" },
+  { name: "ABHIJITH BS", branch: "Electronics and Communication Engineering" },
+  { name: "Albin Raj R", branch: "Mechanical Engineering" },
+  { name: "Adin N S", branch: "Computer Science and Engineering" },
+  { name: "Anandhu Krishnan S", branch: "Computer Science and Engineering" },
+  { name: "AJAY C", branch: "Computer Science and Engineering" },
+  { name: "Shifa thasneem T S", branch: "Computer Science and Engineering" },
+  { name: "APARNA B S", branch: "Computer Science and Engineering" },
+  { name: "Adhithya Krishna S L", branch: "Electronics and Communication Engineering" },
+  { name: "ANURAGE SS", branch: "Computer Science and Engineering" },
+  { name: "SARASWATHY T", branch: "Computer Science and Engineering" },
+  { name: "Jishnu saseendran", branch: "Mechanical Engineering" },
+  { name: "Shameer A N", branch: "Computer Science and Engineering" },
+  { name: "AMAL M", branch: "Mechanical Engineering" },
+  { name: "ADITHYAN S R", branch: "Computer Science and Engineering" },
+  { name: "RAIHANA RAHMAN", branch: "Computer Science and Engineering" },
+  { name: "Rohan Raynish", branch: "Computer Science and Engineering" },
+  { name: "SHIJINA NIZAR", branch: "Computer Science and Engineering" },
+  { name: "SHABANA SN", branch: "Computer Science and Engineering" },
+  { name: "SUDHER BP", branch: "Computer Science and Engineering" },
+  { name: "Arif muhammad F", branch: "Computer Science and Engineering" },
+  { name: "MUNEER M", branch: "Computer Science and Engineering" },
+  { name: "ABHISHEK S", branch: "Computer Science and Engineering" },
+  { name: "Athul Krishnan A S", branch: "Computer Science and Engineering" },
+  { name: "Akshay Subhash", branch: "Mechanical Engineering" }
+];
+
+const normalizeEducation = (educationValue) => {
+  if (!educationValue || typeof educationValue !== 'string') return educationValue;
+  const education = educationValue.toLowerCase().trim();
+  const educationMap = {
+    'Diploma': ['diploma'],
+    'BSc': ['bsc', 'b.sc', 'bachelor of science', 'b sc'],
+    'BVoc': ['bvoc', 'b.voc', 'bachelor of vocation', 'b voc'],
+    'BE': ['be', 'b.e', 'bachelor of engineering', 'b e'],
+    'BTech': ['btech', 'b.tech', 'bachelor of technology', 'b tech'],
+  };
+  for (const [standardForm, keywords] of Object.entries(educationMap)) {
+    for (const keyword of keywords) {
+      if (education.includes(keyword)) return standardForm;
+    }
+  }
+  return educationValue;
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const auth = getAuth(app);
+const normalizeName = (str) => {
+  if (!str) return '';
+  return str.toLowerCase().replace(/[^a-z0-9]/g, '').trim();
+};
 
-const email = "temporary_allotment_agent@cetallot.com";
-const password = "TemporaryPassword123!";
+const getCategoryKey = (app) => {
+  const map = {
+    'EWS': 'EWS', 'Ezhava': 'EZ', 'Muslim': 'M', 'OBH': 'BH',
+    'Other Backward Hindu': 'BH',
+    'Latin Catholic': 'LC', 'Latin Catholic and Anglo Indian': 'LC',
+    'Dheevara': 'DV', 'Viswakarma': 'VK',
+    'Kusavan': 'KN', 'OBC Christian': 'BX', 'Kudumbi': 'KU',
+    'SC': 'SC', 'ST': 'ST', 'Physically Disabled': 'PD', 'Transgender': 'TG',
+    'Sports': 'SPORTS', 'DTE Staff': 'STAFF', 'Central govt. employee': 'CENTRAL',
+  };
+  const categoryValue = app.category || app.reservationCategory;
+  return map[categoryValue] || null;
+};
 
-const getAppYear = (app) => {
-  if (!app.submittedAt) return 2025;
-  try {
-    if (app.submittedAt && typeof app.submittedAt.seconds === 'number') {
-      return new Date(app.submittedAt.seconds * 1000).getFullYear();
-    }
-    return new Date(app.submittedAt).getFullYear();
-  } catch {
-    return 2025;
+const mapDepartmentNameToKey = (name) => {
+  const map = {
+    "Electrical and Electronics Engineering": "ee",
+    "Mechanical Engineering": "mech",
+    "Civil Engineering": "ce",
+    "Computer Science and Engineering": "cse",
+    "Electronics and Communication Engineering": "ece",
+  };
+  return map[name] || null;
+};
+
+const extractChoices = (app) => {
+  if (app.priorityChoices && typeof app.priorityChoices === 'object') {
+    return Object.values(app.priorityChoices)
+      .filter(Boolean)
+      .map(mapDepartmentNameToKey)
+      .filter(Boolean);
   }
+  return [];
+};
+
+const MAX_DISTANCE = 70;
+const getMinMarkForCategory = (app) => {
+  const reservedCategories = [
+    "SC", "ST", "EZ", "M", "BH", "LC", "DV", "VK", "KN", "BX", "KU", "EWS",
+    "PD", "TG", "SPORTS", "STAFF", "CENTRAL"
+  ];
+  const categoryKey = getCategoryKey(app);
+  return reservedCategories.includes(categoryKey) ? 40 : 45;
+};
+
+const MIN_EXPERIENCE = 1;
+const isValidRank = (letRank) => {
+  const num = Number(letRank);
+  return !isNaN(num) && Number.isFinite(num) && num >= 1;
+};
+
+const isEligibleForAllotment = (app) => {
+  const validMark = parseFloat(app.mark) >= getMinMarkForCategory(app);
+  const validDistance = parseFloat(app.distance) <= MAX_DISTANCE;
+  const validRank = isValidRank(app.letRank);
+  const validExperience = parseFloat(app.experience) >= MIN_EXPERIENCE;
+  return validDistance && validRank && validMark && validExperience;
+};
+
+const getEducationPriority = (education) => {
+  const priorityMap = { 'BE': 1, 'BTech': 1, 'Diploma': 2, 'BSc': 3, 'BVoc': 4, 'Other': 5 };
+  return priorityMap[education] || 5;
+};
+
+const sortByEducationThenRankThenMarks = (applications) => {
+  return applications.sort((a, b) => {
+    const eduPriorityA = getEducationPriority(a.education);
+    const eduPriorityB = getEducationPriority(b.education);
+    if (eduPriorityA !== eduPriorityB) return eduPriorityA - eduPriorityB;
+    const rankA = parseFloat(a.letRank);
+    const rankB = parseFloat(b.letRank);
+    if (rankA !== rankB) return rankA - rankB;
+    return parseFloat(b.mark) - parseFloat(a.mark);
+  });
+};
+
+const sortAllottedList = (students) => {
+  const preAdmitted = students.filter(s => s.isPreAdmitted);
+  const newlyAllotted = students.filter(s => !s.isPreAdmitted);
+
+  preAdmitted.sort((a, b) => (a.admNo || 0) - (b.admNo || 0));
+
+  newlyAllotted.sort((a, b) => {
+    const epA = getEducationPriority(a.education);
+    const epB = getEducationPriority(b.education);
+    if (epA !== epB) return epA - epB;
+    const rA = parseFloat(a.letRank) || 999999;
+    const rB = parseFloat(b.letRank) || 999999;
+    if (rA !== rB) return rA - rB;
+    return (parseFloat(b.mark) || 0) - (parseFloat(a.mark) || 0);
+  });
+
+  return [...preAdmitted, ...newlyAllotted];
 };
 
 async function main() {
   try {
-    console.log("Signing in...");
-    await signInWithEmailAndPassword(auth, email, password);
+    console.log("Loading local applications_2026.json file...");
+    const apps2026Raw = JSON.parse(fs.readFileSync('applications_2026.json', 'utf8'));
 
-    console.log("Fetching applications...");
-    const snapshot = await getDocs(collection(db, "applications"));
-    const applications = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    const apps2026 = applications.filter(app => getAppYear(app) === 2026);
+    // Deduplicate B.Tech 2026 applications
+    const seenKeys = new Set();
+    const dedupedApps = [];
+    apps2026Raw.forEach(app => {
+      const normName = normalizeName(app.name);
+      const normEmail = app.email ? app.email.toLowerCase().trim() : '';
+      const normPhone = app.phone ? app.phone.replace(/[^0-9]/g, '') : '';
+      
+      const key = normName + "_" + normEmail + "_" + normPhone;
+      if (!seenKeys.has(key)) {
+        seenKeys.add(key);
+        dedupedApps.push(app);
+      }
+    });
 
-    const departments2026 = [
+    const apps2026 = dedupedApps.map(app => ({
+      ...app,
+      education: normalizeEducation(app.highestEducation)
+    }));
+
+    console.log(`Deduplicated applications: ${apps2026.length}`);
+
+    // Setup departments
+    const departmentsData = [
       { "name": "Computer Science and Engineering", "totalSeats": 30 },
       { "name": "Electronics and Communication Engineering", "totalSeats": 30 },
       { "name": "Mechanical Engineering", "totalSeats": 30 },
       { "name": "Waiting List", "totalSeats": 100 }
     ];
 
-    console.log("Calculating allotment...");
-    const result = calculateAllotment(apps2026, departments2026);
-    const { updatedApplications, updatedDepartments, noExamApplications, summary } = result;
+    const SEBC_CATEGORIES = ["EZ", "M", "BH", "LC", "DV", "VK", "KN", "BX", "KU"];
+    const SPECIAL_CATEGORIES = ["TG", "PD", "SPORTS", "STAFF", "CENTRAL"];
+
+    const updatedDepartments = departmentsData.map((dept) => {
+      const totalSeats = dept.totalSeats;
+      const seatDistribution = {
+        SM: Math.round(totalSeats * 0.5), // 15
+        EWS: Math.round(totalSeats * 0.1), // 3
+        SC: Math.round(totalSeats * 0.08), // 2
+        ST: Math.round(totalSeats * 0.02), // 1
+        EZ: Math.round(totalSeats * 0.09), // 3
+        M: Math.round(totalSeats * 0.08), // 2
+        BH: Math.round(totalSeats * 0.03), // 1
+        LC: Math.round(totalSeats * 0.03), // 1
+        DV: Math.round(totalSeats * 0.02), // 1
+        VK: Math.round(totalSeats * 0.02), // 1
+        KN: Math.round(totalSeats * 0.01), // 0
+        BX: Math.round(totalSeats * 0.01), // 0
+        KU: Math.round(totalSeats * 0.01), // 0
+        PD: 2, TG: 1, SPORTS: 1, STAFF: 1, CENTRAL: 1
+      };
+
+      return {
+        ...dept,
+        allottedStudents: [],
+        filledSeats: 0,
+        smSeatsFilled: 0,
+        seatDistribution,
+        categorySeatsFilled: Object.fromEntries(
+          ['SM', 'EWS', 'SC', 'ST', ...SEBC_CATEGORIES, ...SPECIAL_CATEGORIES].map(cat => [cat, 0])
+        ),
+      };
+    });
+
+    const allotments = new Map();
+
+    // Match admitted students
+    const matchedAdmittedApps = [];
+    const normAdmittedMap = new Map(admittedList.map(item => [normalizeName(item.name), item]));
+
+    apps2026.forEach(app => {
+      const normAppName = normalizeName(app.name);
+      if (normAdmittedMap.has(normAppName)) {
+        const admittedInfo = normAdmittedMap.get(normAppName);
+        matchedAdmittedApps.push({
+          ...app,
+          isPreAdmitted: true,
+          admNo: admittedInfo.admNo,
+          admittedBranch: admittedInfo.branch,
+          priorityChoices: { "1": admittedInfo.branch }
+        });
+      }
+    });
+
+    // Other remaining applicants
+    const remainingApps = apps2026.filter(app => !normAdmittedMap.has(normalizeName(app.name)));
+
+    // 1. Process Admitted candidates first (sorted by merit)
+    const sortedAdmitted = sortByEducationThenRankThenMarks(matchedAdmittedApps);
+
+    for (const app of sortedAdmitted) {
+      const choice = mapDepartmentNameToKey(app.admittedBranch);
+      const categoryKey = getCategoryKey(app);
+      const dept = updatedDepartments.find(d => mapDepartmentNameToKey(d.name) === choice);
+      
+      if (!dept) continue;
+
+      dept.filledSeats++;
+      dept.allottedStudents.push(app.id);
+
+      let allottedCat = "SM";
+      if (dept.smSeatsFilled < dept.seatDistribution.SM) {
+        dept.smSeatsFilled++;
+        dept.categorySeatsFilled.SM++;
+        allottedCat = "SM";
+      } else if (categoryKey && categoryKey !== "General" && dept.seatDistribution[categoryKey] > 0 &&
+                 dept.categorySeatsFilled[categoryKey] < dept.seatDistribution[categoryKey]) {
+        dept.categorySeatsFilled[categoryKey]++;
+        allottedCat = categoryKey;
+      } else {
+        if (categoryKey && categoryKey !== "General") {
+          dept.categorySeatsFilled[categoryKey]++;
+          allottedCat = categoryKey;
+        } else {
+          dept.smSeatsFilled++;
+          dept.categorySeatsFilled.SM++;
+          allottedCat = "SM";
+        }
+      }
+
+      allotments.set(app.id, {
+        ...app,
+        allotmentStatus: "allotted",
+        allottedDepartment: dept.name,
+        allottedCategory: allottedCat
+      });
+    }
+
+    // 2. Process non-admitted candidates (who are eligible)
+    const eligibleRemaining = remainingApps.filter(isEligibleForAllotment);
+    const sortedEligibleRemaining = sortByEducationThenRankThenMarks(eligibleRemaining);
+
+    for (const app of sortedEligibleRemaining) {
+      const choices = extractChoices(app);
+      const categoryKey = getCategoryKey(app);
+      let allotted = false;
+
+      for (const choice of choices) {
+        const dept = updatedDepartments.find(d => mapDepartmentNameToKey(d.name) === choice);
+        if (!dept) continue;
+
+        if (dept.filledSeats >= dept.totalSeats) continue;
+
+        // Try SM
+        if (dept.smSeatsFilled < dept.seatDistribution.SM) {
+          dept.smSeatsFilled++;
+          dept.filledSeats++;
+          dept.categorySeatsFilled.SM++;
+          dept.allottedStudents.push(app.id);
+          allotments.set(app.id, {
+            ...app,
+            allotmentStatus: "allotted",
+            allottedDepartment: dept.name,
+            allottedCategory: "SM"
+          });
+          allotted = true;
+          break;
+        }
+
+        // Try Reservation
+        if (categoryKey && categoryKey !== "General" && dept.seatDistribution[categoryKey] > 0 &&
+            dept.categorySeatsFilled[categoryKey] < dept.seatDistribution[categoryKey]) {
+          dept.categorySeatsFilled[categoryKey]++;
+          dept.filledSeats++;
+          dept.allottedStudents.push(app.id);
+          allotments.set(app.id, {
+            ...app,
+            allotmentStatus: "allotted",
+            allottedDepartment: dept.name,
+            allottedCategory: categoryKey
+          });
+          allotted = true;
+          break;
+        }
+      }
+
+      if (!allotted) {
+        for (const choice of choices) {
+          const dept = updatedDepartments.find(d => mapDepartmentNameToKey(d.name) === choice);
+          if (!dept) continue;
+
+          if (dept.filledSeats < dept.totalSeats) {
+            dept.filledSeats++;
+            dept.allottedStudents.push(app.id);
+            allotments.set(app.id, {
+              ...app,
+              allotmentStatus: "allotted",
+              allottedDepartment: dept.name,
+              allottedCategory: "SM-Vacant"
+            });
+            allotted = true;
+            break;
+          }
+        }
+      }
+
+      if (!allotted) {
+        allotments.set(app.id, {
+          ...app,
+          allotmentStatus: "waiting_list",
+          allottedDepartment: "Waiting List",
+          allottedCategory: "seats_full"
+        });
+      }
+    }
+
+    // Map remaining as waiting or rejected
+    const noExamApplications = [];
+    remainingApps.forEach(app => {
+      if (allotments.has(app.id)) return;
+      
+      const isMarkValid = parseFloat(app.mark) >= getMinMarkForCategory(app);
+      const isDistanceValid = parseFloat(app.distance) <= MAX_DISTANCE;
+      const isRankValid = isValidRank(app.letRank);
+      
+      if (isMarkValid && isDistanceValid && isRankValid) {
+        const hasExperience = app.experience !== null && app.experience !== undefined && parseFloat(app.experience) >= MIN_EXPERIENCE;
+        allotments.set(app.id, {
+          ...app,
+          allotmentStatus: "waiting_list",
+          allottedDepartment: "Waiting List",
+          allottedCategory: hasExperience ? "seats_full" : "experience_requirement"
+        });
+      } else {
+        const isExamNotAttended = !isRankValid;
+        const assignedDept = isExamNotAttended ? (Object.values(app.priorityChoices || {})[0] || "Waiting List") : null;
+        
+        const finalApp = {
+          ...app,
+          allotmentStatus: "not_eligible",
+          allottedDepartment: assignedDept,
+          allottedCategory: isExamNotAttended ? "exam_not_attended" : "eligibility_requirements"
+        };
+        allotments.set(app.id, finalApp);
+        if (isExamNotAttended) {
+          noExamApplications.push(finalApp);
+        }
+      }
+    });
+
+    const updatedApplications = Array.from(allotments.values());
+    const summary = {
+      allotted: updatedApplications.filter(a => a.allotmentStatus === "allotted").length,
+      waiting_list: updatedApplications.filter(a => a.allotmentStatus === "waiting_list").length,
+      not_eligible: updatedApplications.filter(a => a.allotmentStatus === "not_eligible").length,
+      sm_allotted: updatedApplications.filter(a => a.allotmentStatus === "allotted" && a.allottedCategory === "SM").length,
+      reservation_allotted: updatedApplications.filter(a => a.allotmentStatus === "allotted" && a.allottedCategory !== "SM").length,
+    };
 
     // Filter out Waiting List from Department Wise Seat Status table
     const printableDepartments = updatedDepartments.filter(dept => dept.name !== "Waiting List");
@@ -112,25 +476,17 @@ Below is the list of all students who have been successfully allotted seats acro
         app => app.allotmentStatus === "allotted" && app.allottedDepartment === deptName
       );
 
-      allottedStudents.sort((a, b) => {
-        const epA = getEducationPriority(a.education);
-        const epB = getEducationPriority(b.education);
-        if (epA !== epB) return epA - epB;
-        const rA = parseFloat(a.letRank) || 999999;
-        const rB = parseFloat(b.letRank) || 999999;
-        if (rA !== rB) return rA - rB;
-        return (parseFloat(b.mark) || 0) - (parseFloat(a.mark) || 0);
-      });
+      const sortedAllotted = sortAllottedList(allottedStudents);
 
       const deptDetails = updatedDepartments.find(d => d.name === deptName);
       md += `### ${deptName} (${allottedStudents.length} / ${deptDetails.totalSeats} seats filled)\n\n`;
 
-      if (allottedStudents.length === 0) {
+      if (sortedAllotted.length === 0) {
         md += `*No students allotted to this department.*\n\n`;
       } else {
         md += `| Serial No. | Name | LET Rank | Allotment Quota | Email | Phone No. | Signature |\n`;
         md += `| :---: | :--- | :---: | :---: | :--- | :---: | :---: |\n`;
-        allottedStudents.forEach((student, index) => {
+        sortedAllotted.forEach((student, index) => {
           md += `| ${index + 1} | **${student.name.trim()}** | ${student.letRank} | ${student.allottedCategory} | ${student.email} | ${student.phone} | | \n`;
         });
         md += `\n`;
@@ -182,11 +538,13 @@ Below is the list of all students who have been successfully allotted seats acro
           const isMarkInvalid = parseFloat(student.mark) < (student.category ? 40 : 45);
           const isDistanceInvalid = parseFloat(student.distance) > 70;
           const isRankInvalid = !student.letRank || student.letRank === "NA";
+          const isExperienceInvalid = student.experience === null || student.experience === undefined || parseFloat(student.experience) < 1;
           
           const reasons = [];
           if (isMarkInvalid) reasons.push("Low Marks");
           if (isDistanceInvalid) reasons.push("Distance > 70km");
           if (isRankInvalid) reasons.push("Invalid LET Rank");
+          if (isExperienceInvalid) reasons.push("Insufficient Experience");
           if (reasons.length > 0) reason = reasons.join(" & ");
         }
         md += `| ${index + 1} | **${student.name}** | ${student.letRank} | ${student.mark}% | ${student.category || 'General'} | *${reason}* | ${student.education || 'Diploma'} | ${student.distance} km | ${student.experience === null || student.experience === undefined ? 'null' : student.experience} yrs |\n`;
@@ -333,15 +691,7 @@ Below is the list of all students who have been successfully allotted seats acro
         app => app.allotmentStatus === "allotted" && app.allottedDepartment === deptName
       );
 
-      allottedStudents.sort((a, b) => {
-        const epA = getEducationPriority(a.education);
-        const epB = getEducationPriority(b.education);
-        if (epA !== epB) return epA - epB;
-        const rA = parseFloat(a.letRank) || 999999;
-        const rB = parseFloat(b.letRank) || 999999;
-        if (rA !== rB) return rA - rB;
-        return (parseFloat(b.mark) || 0) - (parseFloat(a.mark) || 0);
-      });
+      const sortedAllotted = sortAllottedList(allottedStudents);
 
       // Start each department on a fresh page
       pdfDoc.addPage();
@@ -376,12 +726,12 @@ Below is the list of all students who have been successfully allotted seats acro
       drawDepartmentGridHeader(currentY);
       currentY += 26;
 
-      if (allottedStudents.length === 0) {
+      if (sortedAllotted.length === 0) {
         checkPdfPageBreak(rowHeight);
         drawCell(pdfDoc, "No students allotted.", 10, currentY, 277, rowHeight, "center", false, 9);
         currentY += rowHeight;
       } else {
-        allottedStudents.forEach((student, index) => {
+        sortedAllotted.forEach((student, index) => {
           checkPdfPageBreak(rowHeight);
           drawCell(pdfDoc, `${index + 1}`, 10, currentY, 20, rowHeight, "center", false, 8);
           drawCell(pdfDoc, student.name, 30, currentY, 65, rowHeight, "left", false, 8);
@@ -493,11 +843,13 @@ Below is the list of all students who have been successfully allotted seats acro
           const isMarkInvalid = parseFloat(student.mark) < (student.category ? 40 : 45);
           const isDistanceInvalid = parseFloat(student.distance) > 70;
           const isRankInvalid = !student.letRank || student.letRank === "NA";
+          const isExperienceInvalid = student.experience === null || student.experience === undefined || parseFloat(student.experience) < 1;
           
           const reasons = [];
           if (isMarkInvalid) reasons.push("Low Marks");
           if (isDistanceInvalid) reasons.push("Distance > 70km");
           if (isRankInvalid) reasons.push("Invalid LET Rank");
+          if (isExperienceInvalid) reasons.push("Insufficient Experience");
           if (reasons.length > 0) reason = reasons.join(" & ");
         }
 
@@ -528,15 +880,7 @@ Below is the list of all students who have been successfully allotted seats acro
         app => app.allotmentStatus === "allotted" && app.allottedDepartment === deptName
       );
 
-      allottedStudents.sort((a, b) => {
-        const epA = getEducationPriority(a.education);
-        const epB = getEducationPriority(b.education);
-        if (epA !== epB) return epA - epB;
-        const rA = parseFloat(a.letRank) || 999999;
-        const rB = parseFloat(b.letRank) || 999999;
-        if (rA !== rB) return rA - rB;
-        return (parseFloat(b.mark) || 0) - (parseFloat(a.mark) || 0);
-      });
+      const sortedAllotted = sortAllottedList(allottedStudents);
 
       const rows = [
         ["COLLEGE OF ENGINEERING TRIVANDRUM Office of the Programs for Working Professionals", "", "", "", "", "", ""],
@@ -544,7 +888,7 @@ Below is the list of all students who have been successfully allotted seats acro
         ["Serial No.", "Name", "LET Rank", "Allotment Quota", "Email", "Phone No.", "Signature"]
       ];
 
-      allottedStudents.forEach((student, index) => {
+      sortedAllotted.forEach((student, index) => {
         rows.push([
           index + 1,
           student.name.trim(),
@@ -647,11 +991,13 @@ Below is the list of all students who have been successfully allotted seats acro
         const isMarkInvalid = parseFloat(student.mark) < (student.category ? 40 : 45);
         const isDistanceInvalid = parseFloat(student.distance) > 70;
         const isRankInvalid = !student.letRank || student.letRank === "NA";
+        const isExperienceInvalid = student.experience === null || student.experience === undefined || parseFloat(student.experience) < 1;
         
         const reasons = [];
         if (isMarkInvalid) reasons.push("Low Marks");
         if (isDistanceInvalid) reasons.push("Distance > 70km");
         if (isRankInvalid) reasons.push("Invalid LET Rank");
+        if (isExperienceInvalid) reasons.push("Insufficient Experience");
         if (reasons.length > 0) reason = reasons.join(" & ");
       }
       neRows.push([

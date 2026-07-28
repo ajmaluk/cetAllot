@@ -4,8 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
-import { jsPDF } from "jspdf";
-
+import { generateMtechPDF } from "../utils/generateMtechPDF";
 import {
   FormField,
   FormItem,
@@ -37,7 +36,7 @@ import {
   GraduationCap,
   Percent,
   Banknote,
-  QrCode,
+  Copy,
   ArrowLeft,
   Download,
   Check,
@@ -45,6 +44,7 @@ import {
 
 import { db } from "@/firebase";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { PaymentScreenshotUpload } from "@/components/PaymentScreenshotUpload";
 
 const FormSchema = z.object({
   adharNumber: z.string().min(1, "Aadhaar number is required").regex(/^\d{12}$/, "Aadhaar number must be exactly 12 digits and only numbers"),
@@ -66,6 +66,7 @@ const FormSchema = z.object({
   address: z.string().min(1, "Address is required"),
   age: z.string().min(1, "Age is required").refine(val => /^\d+$/.test(val), "Age must be a valid number"),
   transactionId: z.string().min(1, "Transaction ID is required").regex(/^\d{12}$/, "Transaction ID must be exactly 12 digits and only numbers"),
+  paymentScreenshotUrl: z.string().min(1, "Payment screenshot upload is required").refine(val => val.startsWith("http"), "Please wait for payment screenshot upload to complete or re-upload a valid image"),
 }).superRefine((data, ctx) => {
   const parsedMark = parseFloat(data.btechMark);
   const category = data.reservationCategory;
@@ -112,6 +113,7 @@ const initialFormData = {
   address: "",
   age: "",
   transactionId: "",
+  paymentScreenshotUrl: "",
 };
 
 const getFirstErrorMessage = (errors) => {
@@ -149,142 +151,47 @@ const FormSection = ({ title, icon: Icon, children }) => (
   </motion.div>
 );
 
-const generateMtechPDF = (data) => {
-  const doc = new jsPDF();
-  
-  const darkColor = [31, 41, 55]; // Gray-800
-  
-  // Header text
-  doc.setTextColor(0, 0, 0);
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(18);
-  doc.text("COLLEGE OF ENGINEERING TRIVANDRUM", 15, 20);
-  
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(10);
-  doc.text("M.Tech (Working Professionals) Admission Application 2026-27", 15, 28);
-  
-  // Header dividing line
-  doc.setDrawColor(0, 0, 0);
-  doc.line(15, 33, 195, 33);
-  
-  let y = 35;
-  
-  const drawSectionHeader = (title) => {
-    doc.setFillColor(240, 240, 240);
-    doc.rect(15, y - 4, 180, 7, "F");
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(9);
-    doc.setTextColor(0, 0, 0);
-    doc.text(title.toUpperCase(), 18, y + 1);
-    y += 8;
-  };
-  
-  const drawRow = (label1, value1, label2, value2) => {
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(9);
-    doc.setTextColor(100, 100, 100);
-    doc.text(label1 + ":", 18, y);
-    
-    doc.setFont("helvetica", "normal");
-    doc.setTextColor(...darkColor);
-    doc.text(String(value1 || "N/A"), 55, y);
-    
-    if (label2) {
-      doc.setFont("helvetica", "bold");
-      doc.setTextColor(100, 100, 100);
-      doc.text(label2 + ":", 110, y);
-      
-      doc.setFont("helvetica", "normal");
-      doc.setTextColor(...darkColor);
-      doc.text(String(value2 || "N/A"), 145, y);
-    }
-    
-    y += 6.5;
-  };
-  
-  // Personal Info
-  drawSectionHeader("Personal Information");
-  drawRow("Full Name", data.name, "Email Address", data.email);
-  drawRow("Phone Number", data.phone, "Aadhaar Number", data.adharNumber);
-  y += 1;
-  
-  // Qualifying Degree Details
-  drawSectionHeader("B.Tech / Qualifying Degree Details");
-  drawRow("B.Tech Degree Branch", data.btechDegree, "B.Tech Marks %", `${data.btechMark}%`);
-  drawRow("College Name", data.btechCollege, "University", data.btechUniversity);
-  drawRow("Year of Passing", data.btechYear);
-  y += 1;
-  
-  // Specialization Choice
-  drawSectionHeader("M.Tech Preference");
-  drawRow("Preferred Specialization", data.specialization);
-  y += 1;
-  
-  // Demographic Details
-  drawSectionHeader("Demographic Details");
-  drawRow("Religion", data.religion, "Caste", data.caste);
-  drawRow("Reservation Category", data.reservationCategory || data.category);
-  y += 1;
-  
-  // Professional Details
-  drawSectionHeader("Professional Details");
-  drawRow("Current Company", data.company, "Experience (Years)", data.experience);
-  drawRow("Distance to CET", data.distance ? `${data.distance} KM` : "N/A", "Age", data.age);
-  
-  // Address
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(9);
-  doc.setTextColor(100, 100, 100);
-  doc.text("Address:", 18, y);
-  doc.setFont("helvetica", "normal");
-  doc.setTextColor(...darkColor);
-  const addressLines = doc.splitTextToSize(String(data.address || "N/A"), 135);
-  doc.text(addressLines, 55, y);
-  
-  y += addressLines.length * 4.5 + 3;
-  
-  // Registration Fee Details
-  drawSectionHeader("Registration Fee Details");
-  drawRow("Transaction / UTR ID", data.transactionId);
-  y += 1;
-  
-  // Signature/Declaration
-  if (y > 255) {
-    doc.addPage();
-    y = 30;
-  }
-  
-  doc.setDrawColor(220, 220, 220);
-  doc.line(15, y, 195, y);
-  y += 6;
-  
-  doc.setFont("helvetica", "italic");
-  doc.setFontSize(8);
-  doc.setTextColor(120, 120, 120);
-  const decl = "I hereby declare that all the information provided in this application form is true, complete and correct to the best of my knowledge and belief.";
-  const declLines = doc.splitTextToSize(decl, 175);
-  doc.text(declLines, 18, y);
-  
-  y += 15;
-  
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(9);
-  doc.setTextColor(...darkColor);
-  doc.text("Date: " + new Date().toLocaleDateString("en-GB"), 18, y);
-  
-  doc.text("Signature of the Applicant", 145, y);
-  doc.line(145, y - 4, 190, y - 4);
+const CopyableDetail = ({ label, value }) => {
+  const [copied, setCopied] = useState(false);
 
-  y += 10;
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(9);
-  doc.setTextColor(0, 0, 0);
-  const noteText = "A hard copy of the signed application generated through the portal must be submitted at the time of admission.";
-  const noteLines = doc.splitTextToSize(noteText, 175);
-  doc.text(noteLines, 15, y);
-  
-  doc.save(`Application_MTech_${data.name.replace(/\s+/g, "_")}.pdf`);
+  const handleCopy = () => {
+    if (!value) return;
+    navigator.clipboard.writeText(value);
+    setCopied(true);
+    toast.success(`${label} copied to clipboard!`);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="flex items-center justify-between p-3 rounded-xl bg-white dark:bg-gray-800/90 border border-border/70 shadow-sm hover:border-primary/40 transition-all">
+      <div className="flex flex-col min-w-0 pr-2">
+        <span className="text-xs text-muted-foreground font-medium">{label}</span>
+        <span className="font-mono text-sm sm:text-base font-bold text-foreground tracking-wider truncate">
+          {value}
+        </span>
+      </div>
+      <Button
+        type="button"
+        variant="outline"
+        size="sm"
+        onClick={handleCopy}
+        className="h-8 px-2.5 text-xs flex-shrink-0 gap-1.5 border-primary/20 text-primary hover:bg-primary/10 hover:border-primary/40"
+        title={`Copy ${label}`}
+      >
+        {copied ? (
+          <>
+            <Check className="h-3.5 w-3.5 text-emerald-600" />
+            <span className="text-emerald-600 font-semibold">Copied</span>
+          </>
+        ) : (
+          <>
+            <Copy className="h-3.5 w-3.5" />
+            <span className="font-medium">Copy</span>
+          </>
+        )}
+      </Button>
+    </div>
+  );
 };
 
 const required = (label) => (
@@ -315,6 +222,8 @@ export const MtechApplicationForm = ({ onSuccess }) => {
     try {
       const formattedData = {
         ...submittedData,
+        status: "pending",
+        paymentScreenshotUrl: submittedData.paymentScreenshotUrl || "",
         age: submittedData.age ? Number(submittedData.age) : null,
         experience: submittedData.experience ? Number(submittedData.experience) : null,
         btechMark: Number(submittedData.btechMark),
@@ -496,8 +405,30 @@ export const MtechApplicationForm = ({ onSuccess }) => {
             <h3 className="text-base font-semibold text-primary flex items-center gap-2">
               <Banknote className="h-4 w-4" /> Registration Fee Payment
             </h3>
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {renderReviewItem("Transaction / UTR ID", submittedData.transactionId)}
+              <div>
+                <span className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">
+                  Payment Screenshot
+                </span>
+                {submittedData.paymentScreenshotUrl ? (
+                  <a
+                    href={submittedData.paymentScreenshotUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm text-emerald-600 dark:text-emerald-400 font-semibold hover:underline"
+                  >
+                    <img
+                      src={submittedData.paymentScreenshotUrl}
+                      alt="Payment Screenshot"
+                      className="w-12 h-12 rounded object-cover border"
+                    />
+                    View Screenshot
+                  </a>
+                ) : (
+                  <span className="text-sm text-red-500 font-medium">Not Uploaded</span>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -682,73 +613,45 @@ export const MtechApplicationForm = ({ onSuccess }) => {
         {/* Registration Fee & Payment */}
         <FormSection title="Registration Fee Payment" icon={Banknote}>
           <div className="rounded-xl bg-blue-50 border border-blue-200 p-5 mb-4">
-            <h4 className="font-semibold text-blue-800 mb-2">Application Fee</h4>
+            <h4 className="font-semibold text-blue-800 mb-2">Application Fee Information</h4>
             <ul className="text-sm text-blue-700 space-y-1">
               <li>General / Others: <strong>₹1,000</strong></li>
               <li>SC / ST: <strong>₹500</strong></li>
             </ul>
             <p className="text-xs text-blue-600 mt-2">
-              Fee is non-refundable. Pay via UPI and enter the transaction ID below.
+              Fee is non-refundable. Pay via online bank transfer / NEFT / IMPS / UPI and enter the transaction ID below.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="flex flex-col items-center justify-center p-6 rounded-xl bg-white border border-border/50">
-              <QrCode className="h-8 w-8 text-primary mb-3" />
-              <p className="text-sm font-medium text-center mb-3">Scan to Pay (Demo)</p>
-              <div className="w-48 h-48 bg-gray-100 rounded-xl flex items-center justify-center border-2 border-dashed border-gray-300">
-                <div className="text-center">
-                  <div className="inline-block p-3 bg-white rounded-lg shadow-sm border">
-                    <svg width="140" height="140" viewBox="0 0 140 140" className="mx-auto">
-                      <rect x="10" y="10" width="50" height="50" fill="#1a1a1a" rx="4" />
-                      <rect x="16" y="16" width="18" height="18" fill="white" rx="1" />
-                      <rect x="38" y="16" width="16" height="16" fill="white" rx="1" />
-                      <rect x="16" y="38" width="16" height="16" fill="white" rx="1" />
-                      <rect x="80" y="10" width="50" height="50" fill="#1a1a1a" rx="4" />
-                      <rect x="86" y="16" width="18" height="18" fill="white" rx="1" />
-                      <rect x="108" y="16" width="16" height="16" fill="white" rx="1" />
-                      <rect x="86" y="38" width="16" height="16" fill="white" rx="1" />
-                      <rect x="10" y="80" width="50" height="50" fill="#1a1a1a" rx="4" />
-                      <rect x="16" y="86" width="18" height="18" fill="white" rx="1" />
-                      <rect x="38" y="86" width="16" height="16" fill="white" rx="1" />
-                      <rect x="16" y="108" width="16" height="16" fill="white" rx="1" />
-                      <rect x="80" y="80" width="50" height="50" fill="#1a1a1a" rx="4" />
-                      <rect x="86" y="86" width="18" height="18" fill="white" rx="1" />
-                      <rect x="108" y="86" width="16" height="16" fill="white" rx="1" />
-                      <rect x="86" y="108" width="16" height="16" fill="white" rx="1" />
-                      <rect x="56" y="56" width="28" height="28" fill="#1a1a1a" rx="4" />
-                      <rect x="62" y="62" width="16" height="16" fill="white" rx="1" />
-                    </svg>
+            <div className="rounded-xl bg-muted/30 p-5 border border-border/50 flex flex-col justify-between space-y-4">
+              <div>
+                <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
+                  <Banknote className="h-4 w-4 text-primary" />
+                  Bank Account Details
+                </h4>
+                <div className="space-y-3">
+                  <CopyableDetail label="College Bank Account No." value="67372082824" />
+                  <CopyableDetail label="IFSC Code" value="SBIN0070268" />
+                  <div className="p-3.5 rounded-xl bg-white dark:bg-gray-800/90 border border-border/70 text-xs space-y-2">
+                    <div className="flex justify-between items-start gap-2">
+                      <span className="text-muted-foreground font-medium">Bank & Branch:</span>
+                      <span className="font-semibold text-foreground text-right">State Bank of India, Engineering College Branch</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-muted-foreground font-medium">Account Name:</span>
+                      <span className="font-semibold text-foreground">CET WP Admission</span>
+                    </div>
+                    <div className="border-t border-border/40 pt-2 flex justify-between items-center text-sm">
+                      <span className="font-semibold text-foreground">Fee Amount:</span>
+                      <span className="font-bold text-primary">₹1,000 / ₹500</span>
+                    </div>
                   </div>
-                  <p className="text-xs text-muted-foreground mt-2">Demo QR Code</p>
                 </div>
               </div>
             </div>
 
             <div className="space-y-4">
-              <div className="rounded-lg bg-muted/30 p-4 border border-border/50">
-                <p className="text-sm font-medium mb-2">UPI Payment Details (Demo)</p>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">UPI ID:</span>
-                    <span className="font-mono font-medium">cetwpadmission@upi</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Account Name:</span>
-                    <span className="font-medium">CET WP Admission</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Bank:</span>
-                    <span className="font-medium">State Bank of India</span>
-                  </div>
-                  <div className="border-t border-border/30 my-2" />
-                  <div className="flex justify-between text-base">
-                    <span className="font-semibold">Amount:</span>
-                    <span className="font-bold text-primary">₹1,000 / ₹500</span>
-                  </div>
-                </div>
-              </div>
-
               {renderInputField({
                 name: "transactionId",
                 label: required("Transaction / UTR ID"),
@@ -757,8 +660,25 @@ export const MtechApplicationForm = ({ onSuccess }) => {
                 placeholder: "e.g. 123456789012",
               })}
               <p className="text-xs text-muted-foreground">
-                Enter the UPI transaction ID or UTR number after making the payment.
+                Enter the 12-digit transaction ID or UTR number after transferring the payment.
               </p>
+
+              <FormField
+                name="paymentScreenshotUrl"
+                render={({ field, fieldState }) => (
+                  <FormItem className="pt-2">
+                    <FormLabel>{required("Upload Payment Screenshot")}</FormLabel>
+                    <FormControl>
+                      <PaymentScreenshotUpload
+                        value={field.value}
+                        onChange={field.onChange}
+                        disabled={form.formState.isSubmitting}
+                      />
+                    </FormControl>
+                    <FormMessage fieldState={fieldState} />
+                  </FormItem>
+                )}
+              />
             </div>
           </div>
         </FormSection>

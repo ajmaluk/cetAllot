@@ -496,7 +496,7 @@ export default function Home() {
                 <div className="px-6 py-4 bg-yellow-50 border-t border-yellow-200">
                   <p className="text-xs text-yellow-800">
                     <strong>Note:</strong> Government and University fee payment is accepted only through{" "}
-                    <strong>QR Code, UPI, or Online payment methods</strong>. Card and cash payments are not accepted.
+                    <strong>Bank Transfer, UPI, or Online payment methods</strong>. Card and cash payments are not accepted.
                   </p>
                 </div>
               </Card>

@@ -34,7 +34,7 @@ export default function PartTimeBtech() {
 
   const currentYear = new Date().getFullYear();
   const [selectedYear, setSelectedYear] = useState(String(currentYear));
-  const [degreeType, setDegreeType] = useState("btech");
+  const [degreeType, setDegreeType] = useState("mtech");
   const [isPublished, setIsPublished] = useState(false);
   const [isSpotPublished, setIsSpotPublished] = useState(false);
   const [allotmentSubTab, setAllotmentSubTab] = useState("regular"); // "regular" | "spot"
@@ -62,6 +62,7 @@ export default function PartTimeBtech() {
     "Control Systems (Electrical Engineering)",
     "Thermal Science (Mechanical Engineering)",
     "Traffic & Transportation Engineering (Civil Engineering)",
+    "Waiting List",
   ];
 
   useEffect(() => {

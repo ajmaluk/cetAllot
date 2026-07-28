@@ -3,11 +3,14 @@ import { motion } from "framer-motion";
 import { Search, Download, AlertCircle, FileText, ArrowLeft, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { db } from "@/firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, collection, getDocs } from "firebase/firestore";
 import { generateBtechPDF } from "./utils/generateBtechPDF";
+import { generateMtechPDF } from "./utils/generateMtechPDF";
 import { Button } from "@/components/ui/Button";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/Tabs";
 
 export default function DownloadApplication() {
+  const [degreeType, setDegreeType] = useState("mtech");
   const [year, setYear] = useState("2026");
   const [letRollNo, setLetRollNo] = useState("");
   const [email, setEmail] = useState("");
@@ -17,14 +20,27 @@ export default function DownloadApplication() {
   const [errorMsg, setErrorMsg] = useState("");
   const [applicationData, setApplicationData] = useState(null);
 
-
+  const handleDegreeChange = (val) => {
+    setDegreeType(val);
+    setErrorMsg("");
+    setApplicationData(null);
+  };
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    if (!letRollNo || !email || !phone) {
-      setErrorMsg("Please fill in all search fields.");
-      setApplicationData(null);
-      return;
+
+    if (degreeType === "btech") {
+      if (!letRollNo || !email || !phone) {
+        setErrorMsg("Please fill in all search fields.");
+        setApplicationData(null);
+        return;
+      }
+    } else {
+      if (!email || !phone) {
+        setErrorMsg("Please fill in Registered Email and Mobile Number.");
+        setApplicationData(null);
+        return;
+      }
     }
 
     setLoading(true);
@@ -33,32 +49,81 @@ export default function DownloadApplication() {
 
     try {
       const normalizeString = (str) => String(str || "").trim().toLowerCase();
-      const normalizedLet = normalizeString(letRollNo);
+      const cleanPhone = (str) => String(str || "").replace(/\D/g, "").slice(-10);
+
       const normalizedEmail = normalizeString(email);
       const normalizedPhone = normalizeString(phone);
+      const targetPhoneDigits = cleanPhone(phone);
 
-      const regDocId = `btech_${year}_reg_${normalizedLet}_${normalizedEmail}_${normalizedPhone}`;
-      const spotDocId = `btech_${year}_spot_${normalizedLet}_${normalizedEmail}_${normalizedPhone}`;
+      if (degreeType === "btech") {
+        const normalizedLet = normalizeString(letRollNo);
+        const regDocId = `btech_${year}_reg_${normalizedLet}_${normalizedEmail}_${normalizedPhone}`;
+        const spotDocId = `btech_${year}_spot_${normalizedLet}_${normalizedEmail}_${normalizedPhone}`;
 
-      const regDocRef = doc(db, "applications", regDocId);
-      const spotDocRef = doc(db, "applications", spotDocId);
+        const regDocRef = doc(db, "applications", regDocId);
+        const spotDocRef = doc(db, "applications", spotDocId);
 
-      const [regSnap, spotSnap] = await Promise.all([
-        getDoc(regDocRef),
-        getDoc(spotDocRef)
-      ]);
+        const [regSnap, spotSnap] = await Promise.all([
+          getDoc(regDocRef),
+          getDoc(spotDocRef)
+        ]);
 
-      let found = null;
-      if (spotSnap.exists()) {
-        found = { id: spotSnap.id, ...spotSnap.data() };
-      } else if (regSnap.exists()) {
-        found = { id: regSnap.id, ...regSnap.data() };
-      }
+        let found = null;
+        if (spotSnap.exists()) {
+          found = { id: spotSnap.id, ...spotSnap.data() };
+        } else if (regSnap.exists()) {
+          found = { id: regSnap.id, ...regSnap.data() };
+        }
 
-      if (found) {
-        setApplicationData(found);
+        // Fallback search across applications collection if key mismatch
+        if (!found) {
+          const btechSnap = await getDocs(collection(db, "applications"));
+          btechSnap.forEach((docSnap) => {
+            if (found) return;
+            const data = docSnap.data();
+            const dbEmail = normalizeString(data.email);
+            const dbPhoneDigits = cleanPhone(data.phone);
+            const dbLet = normalizeString(data.letRegNo || data.letRollNo);
+            
+            if (
+              dbEmail === normalizedEmail &&
+              (dbPhoneDigits === targetPhoneDigits || normalizeString(data.phone) === normalizedPhone) &&
+              (dbLet === normalizedLet || normalizedLet === "0")
+            ) {
+              found = { id: docSnap.id, ...data };
+            }
+          });
+        }
+
+        if (found) {
+          setApplicationData(found);
+        } else {
+          setErrorMsg("No application found matching the provided details. Please verify your Academic Year, LET Roll Number, Email, and Phone Number.");
+        }
       } else {
-        setErrorMsg("No application found matching the provided details. Please verify your Academic Year, LET Roll Number, Email, and Phone Number.");
+        // Search M.Tech applications in mtech_applications collection
+        const qSnap = await getDocs(collection(db, "mtech_applications"));
+        let found = null;
+        
+        qSnap.forEach((docSnap) => {
+          if (found) return;
+          const data = docSnap.data();
+          const dbEmail = normalizeString(data.email);
+          const dbPhoneDigits = cleanPhone(data.phone);
+
+          if (
+            dbEmail === normalizedEmail &&
+            (dbPhoneDigits === targetPhoneDigits || normalizeString(data.phone) === normalizedPhone)
+          ) {
+            found = { id: docSnap.id, ...data };
+          }
+        });
+
+        if (found) {
+          setApplicationData(found);
+        } else {
+          setErrorMsg("No M.Tech application found matching the provided Email and Phone Number. Please verify your details.");
+        }
       }
     } catch (err) {
       console.error("Error retrieving application:", err);
@@ -86,13 +151,33 @@ export default function DownloadApplication() {
         >
           <h1 className="text-3xl font-extrabold tracking-tight">Retrieve Application Form</h1>
           <p className="text-muted-foreground mt-2 max-w-md mx-auto">
-            Search and download your submitted B.Tech (Working Professionals) application form.
+            Search and download your submitted {degreeType === "mtech" ? "M.Tech" : "B.Tech"} (Working Professionals) application form.
           </p>
         </motion.div>
 
+        {/* Program Selection Tabs */}
+        <div className="flex justify-center mb-6">
+          <Tabs value={degreeType} onValueChange={handleDegreeChange} className="w-full max-w-md">
+            <TabsList className="bg-muted/50 p-1 rounded-xl w-full grid grid-cols-2">
+              <TabsTrigger
+                value="btech"
+                className="px-4 py-2 text-sm font-medium rounded-lg data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm dark:data-[state=active]:bg-gray-800"
+              >
+                B.Tech (WP)
+              </TabsTrigger>
+              <TabsTrigger
+                value="mtech"
+                className="px-4 py-2 text-sm font-medium rounded-lg data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm dark:data-[state=active]:bg-gray-800"
+              >
+                M.Tech (WP)
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
+        </div>
+
         <div className="bg-card border border-border/50 rounded-2xl shadow-sm p-6 md:p-8">
           <form onSubmit={handleSearch} className="space-y-5">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className={`grid grid-cols-1 ${degreeType === "btech" ? "md:grid-cols-2" : ""} gap-5`}>
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
                   Academic Year
@@ -107,19 +192,21 @@ export default function DownloadApplication() {
                 </select>
               </div>
 
-              <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
-                  LET Roll / Reg Number
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter Roll Number (or '0' if N/A)"
-                  value={letRollNo}
-                  onChange={(e) => setLetRollNo(e.target.value)}
-                  className="w-full bg-background border border-input rounded-xl px-4 py-2.5 text-sm placeholder:text-muted-foreground/60 outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
-                  required
-                />
-              </div>
+              {degreeType === "btech" && (
+                <div>
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                    LET Roll / Reg Number
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Enter Roll Number (or '0' if N/A)"
+                    value={letRollNo}
+                    onChange={(e) => setLetRollNo(e.target.value)}
+                    className="w-full bg-background border border-input rounded-xl px-4 py-2.5 text-sm placeholder:text-muted-foreground/60 outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                    required
+                  />
+                </div>
+              )}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -198,22 +285,41 @@ export default function DownloadApplication() {
                     Application ID: {applicationData.id}
                   </p>
                 </div>
-                {applicationData.isSpot && (
+                {degreeType === "btech" && applicationData.isSpot ? (
                   <span className="ml-auto text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-200">
                     Spot Round
+                  </span>
+                ) : (
+                  <span className="ml-auto text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
+                    {degreeType === "mtech" ? "M.Tech" : "B.Tech"}
                   </span>
                 )}
               </div>
 
               <div className="grid grid-cols-2 gap-y-3 text-sm mb-6">
-                <div>
-                  <span className="text-muted-foreground text-xs block">Highest Education</span>
-                  <span className="font-medium">{applicationData.highestEducation}</span>
-                </div>
-                <div>
-                  <span className="text-muted-foreground text-xs block">LET Roll No</span>
-                  <span className="font-medium">{applicationData.letRegNo}</span>
-                </div>
+                {degreeType === "btech" ? (
+                  <>
+                    <div>
+                      <span className="text-muted-foreground text-xs block">Highest Education</span>
+                      <span className="font-medium">{applicationData.highestEducation || "N/A"}</span>
+                    </div>
+                    <div>
+                      <span className="text-muted-foreground text-xs block">LET Roll No</span>
+                      <span className="font-medium">{applicationData.letRegNo || "N/A"}</span>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div>
+                      <span className="text-muted-foreground text-xs block">B.Tech Degree</span>
+                      <span className="font-medium">{applicationData.btechDegree || "N/A"}</span>
+                    </div>
+                    <div>
+                      <span className="text-muted-foreground text-xs block">Specialization</span>
+                      <span className="font-medium">{applicationData.specialization || "N/A"}</span>
+                    </div>
+                  </>
+                )}
                 <div>
                   <span className="text-muted-foreground text-xs block">Email Address</span>
                   <span className="font-medium truncate block max-w-[200px]">{applicationData.email}</span>
@@ -225,7 +331,11 @@ export default function DownloadApplication() {
               </div>
 
               <Button
-                onClick={() => generateBtechPDF(applicationData)}
+                onClick={() =>
+                  degreeType === "mtech"
+                    ? generateMtechPDF(applicationData)
+                    : generateBtechPDF(applicationData)
+                }
                 variant="outline"
                 className="w-full flex items-center justify-center gap-2 border-emerald-600/30 text-emerald-700 hover:bg-emerald-50 dark:text-emerald-400 dark:hover:bg-emerald-950/20"
               >

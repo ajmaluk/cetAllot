@@ -34,7 +34,9 @@ export const runMtechAllotmentHandler = async (year) => {
       }
     };
 
-    const filteredApplications = applications.filter(app => getAppYear(app) === currentYear);
+    const filteredApplications = applications.filter(
+      (app) => getAppYear(app) === currentYear && app.status !== "rejected"
+    );
 
     const { updatedApplications, updatedDepartments } = calculateMtechAllotment(filteredApplications);
 

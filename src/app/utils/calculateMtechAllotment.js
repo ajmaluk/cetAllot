@@ -6,7 +6,9 @@ export const calculateMtechAllotment = (applications) => {
   };
 
   const updatedApplications = [];
+  const waitingListArray = [];
 
+  // Filter out any non-eligible applications and sort eligible candidates
   applications.forEach((app) => {
     const mark = Number(app.btechMark) || 0;
     const experience = Number(app.experience) || 0;
@@ -16,7 +18,7 @@ export const calculateMtechAllotment = (applications) => {
     const spec = specializations[specKey];
 
     if (!spec) {
-      updatedApplications.push({
+      waitingListArray.push({
         ...app,
         allotmentStatus: "not_eligible",
         allottedDepartment: "Waiting List",
@@ -36,7 +38,7 @@ export const calculateMtechAllotment = (applications) => {
 
     let minMark = 60;
     if (isSCST) {
-      minMark = 0; // Pass is sufficient
+      minMark = 0; // Pass is sufficient for SC/ST
     } else if (isSEBC) {
       minMark = 55;
     }
@@ -51,7 +53,7 @@ export const calculateMtechAllotment = (applications) => {
       const reason = !validMark ? "minimum_mark_requirement"
         : !validExperience ? "experience_requirement"
         : "distance_exceeds_limit";
-      updatedApplications.push({
+      waitingListArray.push({
         ...app,
         allotmentStatus: "not_eligible",
         allottedDepartment: "Waiting List",
@@ -70,6 +72,7 @@ export const calculateMtechAllotment = (applications) => {
     return bMark + expWeightage;
   };
 
+  // Sort candidates within each specialization and allocate seats
   for (const [specName, spec] of Object.entries(specializations)) {
     spec.allotted.sort((a, b) => {
       const indexA = getIndexMark(a);
@@ -86,14 +89,14 @@ export const calculateMtechAllotment = (applications) => {
         return markB - markA;
       }
 
-      // Tie-breaker 3: Age (descending, older first)
+      // Tie-breaker 2: Age (descending, older candidate first)
       const ageA = Number(a.age) || 0;
       const ageB = Number(b.age) || 0;
       if (ageB !== ageA) {
         return ageB - ageA;
       }
 
-      // Tie-breaker 4: Distance (descending)
+      // Tie-breaker 3: Distance (descending)
       const distA = Number(a.distance) || 0;
       const distB = Number(b.distance) || 0;
       return distB - distA;
@@ -101,9 +104,9 @@ export const calculateMtechAllotment = (applications) => {
 
     const seatCount = spec.totalSeats;
     const allottedStudents = spec.allotted.slice(0, seatCount);
-    const waitingStudents = spec.allotted.slice(seatCount);
+    const overflowStudents = spec.allotted.slice(seatCount);
 
-    allottedStudents.forEach((app) => {
+    allottedStudents.forEach((app, idx) => {
       const indexMark = getIndexMark(app);
       updatedApplications.push({
         ...app,
@@ -111,12 +114,13 @@ export const calculateMtechAllotment = (applications) => {
         allottedDepartment: specName,
         allottedCategory: app.reservationCategory || "General",
         indexMark: Number(indexMark.toFixed(2)),
+        rank: idx + 1,
       });
     });
 
-    waitingStudents.forEach((app) => {
+    overflowStudents.forEach((app) => {
       const indexMark = getIndexMark(app);
-      updatedApplications.push({
+      waitingListArray.push({
         ...app,
         allotmentStatus: "waiting_list",
         allottedDepartment: "Waiting List",
@@ -126,5 +130,20 @@ export const calculateMtechAllotment = (applications) => {
     });
   }
 
-  return { updatedApplications, updatedDepartments: Object.entries(specializations).map(([name, s]) => ({ name, totalSeats: s.totalSeats })) };
+  // Assign ranks for waiting list students
+  waitingListArray.forEach((app, idx) => {
+    updatedApplications.push({
+      ...app,
+      rank: idx + 1,
+    });
+  });
+
+  const updatedDepartments = [
+    { name: "Control Systems (Electrical Engineering)", totalSeats: 15 },
+    { name: "Thermal Science (Mechanical Engineering)", totalSeats: 15 },
+    { name: "Traffic & Transportation Engineering (Civil Engineering)", totalSeats: 15 },
+    { name: "Waiting List", totalSeats: 0 },
+  ];
+
+  return { updatedApplications, updatedDepartments };
 };
