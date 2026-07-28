@@ -323,7 +323,7 @@ export default function Dashboard() {
         </div>
       )}
 
-      <Tabs defaultValue="btech" className="space-y-6">
+      <Tabs defaultValue="mtech" className="space-y-6">
         <TabsList className="bg-muted/50 p-1">
           <TabsTrigger value="btech" className="data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm dark:data-[state=active]:bg-gray-800">
             B.Tech

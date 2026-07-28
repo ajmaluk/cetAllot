@@ -45,6 +45,7 @@ import {
 import { db } from "@/firebase";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { PaymentScreenshotUpload } from "@/components/PaymentScreenshotUpload";
+import { uploadToCloudinary } from "@/app/utils/cloudinaryUpload";
 
 const FormSchema = z.object({
   adharNumber: z.string().min(1, "Aadhaar number is required").regex(/^\d{12}$/, "Aadhaar number must be exactly 12 digits and only numbers"),
@@ -66,7 +67,12 @@ const FormSchema = z.object({
   address: z.string().min(1, "Address is required"),
   age: z.string().min(1, "Age is required").refine(val => /^\d+$/.test(val), "Age must be a valid number"),
   transactionId: z.string().min(1, "Transaction ID is required").regex(/^\d{12}$/, "Transaction ID must be exactly 12 digits and only numbers"),
-  paymentScreenshotUrl: z.string().min(1, "Payment screenshot upload is required").refine(val => val.startsWith("http"), "Please wait for payment screenshot upload to complete or re-upload a valid image"),
+  paymentScreenshotUrl: z.any().refine((val) => {
+    if (!val) return false;
+    if (typeof val === "string" && val.length > 0) return true;
+    if (typeof val === "object" && (val.file || val.previewUrl)) return true;
+    return false;
+  }, "Payment screenshot upload is required"),
 }).superRefine((data, ctx) => {
   const parsedMark = parseFloat(data.btechMark);
   const category = data.reservationCategory;
@@ -139,7 +145,7 @@ const FormSection = ({ title, icon: Icon, children }) => (
   <motion.div
     initial={{ opacity: 0, y: 10 }}
     animate={{ opacity: 1, y: 0 }}
-    className="space-y-5 p-6 rounded-xl bg-muted/20 border border-border/40"
+    className="space-y-5 p-4 sm:p-6 rounded-2xl bg-muted/20 border border-border/40"
   >
     <div className="flex items-center gap-3 pb-3 border-b border-border/30">
       <div className="p-2 rounded-lg bg-primary/5">
@@ -163,10 +169,10 @@ const CopyableDetail = ({ label, value }) => {
   };
 
   return (
-    <div className="flex items-center justify-between p-3 rounded-xl bg-white dark:bg-gray-800/90 border border-border/70 shadow-sm hover:border-primary/40 transition-all">
-      <div className="flex flex-col min-w-0 pr-2">
-        <span className="text-xs text-muted-foreground font-medium">{label}</span>
-        <span className="font-mono text-sm sm:text-base font-bold text-foreground tracking-wider truncate">
+    <div className="flex items-center justify-between gap-2 p-3 sm:p-3.5 rounded-xl bg-white dark:bg-gray-800/90 border border-border/70 shadow-2xs hover:border-primary/40 transition-all">
+      <div className="flex flex-col min-w-0 flex-1">
+        <span className="text-[11px] sm:text-xs text-muted-foreground font-medium">{label}</span>
+        <span className="font-mono text-base sm:text-lg font-extrabold text-foreground tracking-wider truncate">
           {value}
         </span>
       </div>
@@ -175,18 +181,18 @@ const CopyableDetail = ({ label, value }) => {
         variant="outline"
         size="sm"
         onClick={handleCopy}
-        className="h-8 px-2.5 text-xs flex-shrink-0 gap-1.5 border-primary/20 text-primary hover:bg-primary/10 hover:border-primary/40"
+        className="h-8.5 px-3 text-xs flex-shrink-0 gap-1.5 border-primary/30 text-primary hover:bg-primary/10 hover:border-primary/50 font-medium shadow-2xs"
         title={`Copy ${label}`}
       >
         {copied ? (
           <>
-            <Check className="h-3.5 w-3.5 text-emerald-600" />
+            <Check className="h-4 w-4 text-emerald-600" />
             <span className="text-emerald-600 font-semibold">Copied</span>
           </>
         ) : (
           <>
             <Copy className="h-3.5 w-3.5" />
-            <span className="font-medium">Copy</span>
+            <span className="font-semibold">Copy</span>
           </>
         )}
       </Button>
@@ -219,11 +225,30 @@ export const MtechApplicationForm = ({ onSuccess }) => {
   const confirmAndSubmit = async () => {
     if (!submittedData) return;
     setIsSubmitting(true);
+    let toastId = null;
+
     try {
+      let cloudinaryUrl = "";
+      const paymentData = submittedData.paymentScreenshotUrl;
+
+      if (paymentData && paymentData.file instanceof File) {
+        toastId = toast.loading("Uploading payment screenshot to Cloudinary...");
+        cloudinaryUrl = await uploadToCloudinary(paymentData.file);
+        if (toastId) toast.dismiss(toastId);
+      } else if (typeof paymentData === "string") {
+        cloudinaryUrl = paymentData;
+      } else if (paymentData?.previewUrl && paymentData.previewUrl.startsWith("http")) {
+        cloudinaryUrl = paymentData.previewUrl;
+      }
+
+      if (!cloudinaryUrl && paymentData) {
+        throw new Error("Invalid image or upload failed.");
+      }
+
       const formattedData = {
         ...submittedData,
         status: "pending",
-        paymentScreenshotUrl: submittedData.paymentScreenshotUrl || "",
+        paymentScreenshotUrl: cloudinaryUrl,
         age: submittedData.age ? Number(submittedData.age) : null,
         experience: submittedData.experience ? Number(submittedData.experience) : null,
         btechMark: Number(submittedData.btechMark),
@@ -243,9 +268,10 @@ export const MtechApplicationForm = ({ onSuccess }) => {
       onSuccess?.();
       setStep("success");
     } catch (error) {
+      if (toastId) toast.dismiss(toastId);
       console.error("Error submitting form:", error);
       toast.error("Submission failed!", {
-        description: "Please try again later or contact support.",
+        description: error.message || "Please try again later or contact support.",
       });
     } finally {
       setIsSubmitting(false);
@@ -412,19 +438,20 @@ export const MtechApplicationForm = ({ onSuccess }) => {
                   Payment Screenshot
                 </span>
                 {submittedData.paymentScreenshotUrl ? (
-                  <a
-                    href={submittedData.paymentScreenshotUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-emerald-600 dark:text-emerald-400 font-semibold hover:underline"
-                  >
+                  <div className="inline-flex items-center gap-2 text-sm text-emerald-600 dark:text-emerald-400 font-semibold">
                     <img
-                      src={submittedData.paymentScreenshotUrl}
+                      src={
+                        typeof submittedData.paymentScreenshotUrl === "object"
+                          ? submittedData.paymentScreenshotUrl.previewUrl
+                          : submittedData.paymentScreenshotUrl
+                      }
                       alt="Payment Screenshot"
                       className="w-12 h-12 rounded object-cover border"
                     />
-                    View Screenshot
-                  </a>
+                    <span className="text-xs text-muted-foreground font-medium">
+                      Selected (Will upload on submit)
+                    </span>
+                  </div>
                 ) : (
                   <span className="text-sm text-red-500 font-medium">Not Uploaded</span>
                 )}
@@ -612,19 +639,19 @@ export const MtechApplicationForm = ({ onSuccess }) => {
 
         {/* Registration Fee & Payment */}
         <FormSection title="Registration Fee Payment" icon={Banknote}>
-          <div className="rounded-xl bg-blue-50 border border-blue-200 p-5 mb-4">
-            <h4 className="font-semibold text-blue-800 mb-2">Application Fee Information</h4>
-            <ul className="text-sm text-blue-700 space-y-1">
+          <div className="rounded-2xl bg-blue-50/80 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800/50 p-4 sm:p-5 mb-4">
+            <h4 className="font-semibold text-blue-800 dark:text-blue-300 mb-2">Application Fee Information</h4>
+            <ul className="text-sm text-blue-700 dark:text-blue-300 space-y-1">
               <li>General / Others: <strong>₹1,000</strong></li>
               <li>SC / ST: <strong>₹500</strong></li>
             </ul>
-            <p className="text-xs text-blue-600 mt-2">
+            <p className="text-xs text-blue-600 dark:text-blue-400 mt-2">
               Fee is non-refundable. Pay via online bank transfer / NEFT / IMPS / UPI and enter the transaction ID below.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="rounded-xl bg-muted/30 p-5 border border-border/50 flex flex-col justify-between space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="rounded-2xl bg-muted/30 p-4 sm:p-5 border border-border/50 flex flex-col justify-between space-y-4">
               <div>
                 <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
                   <Banknote className="h-4 w-4 text-primary" />
@@ -633,18 +660,18 @@ export const MtechApplicationForm = ({ onSuccess }) => {
                 <div className="space-y-3">
                   <CopyableDetail label="College Bank Account No." value="67372082824" />
                   <CopyableDetail label="IFSC Code" value="SBIN0070268" />
-                  <div className="p-3.5 rounded-xl bg-white dark:bg-gray-800/90 border border-border/70 text-xs space-y-2">
-                    <div className="flex justify-between items-start gap-2">
+                  <div className="p-3.5 sm:p-4 rounded-xl bg-white dark:bg-gray-800/90 border border-border/70 text-xs sm:text-sm space-y-2.5">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1">
                       <span className="text-muted-foreground font-medium">Bank & Branch:</span>
-                      <span className="font-semibold text-foreground text-right">State Bank of India, Engineering College Branch</span>
+                      <span className="font-semibold text-foreground">State Bank of India, Engineering College Branch</span>
                     </div>
-                    <div className="flex justify-between items-center">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1">
                       <span className="text-muted-foreground font-medium">Account Name:</span>
                       <span className="font-semibold text-foreground">CET WP Admission</span>
                     </div>
                     <div className="border-t border-border/40 pt-2 flex justify-between items-center text-sm">
                       <span className="font-semibold text-foreground">Fee Amount:</span>
-                      <span className="font-bold text-primary">₹1,000 / ₹500</span>
+                      <span className="font-bold text-primary text-base">₹1,000 / ₹500</span>
                     </div>
                   </div>
                 </div>

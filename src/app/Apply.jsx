@@ -171,7 +171,7 @@ export default function Apply() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="bg-card border border-border/50 rounded-2xl shadow-sm p-6 md:p-10">
+                <div className="bg-card border border-border/50 rounded-2xl shadow-sm p-3.5 sm:p-6 md:p-10">
                   {btechStatus === "open" || btechStatus === "spot" ? (
                     <ApplicationForm isSpot={btechStatus === "spot"} />
                   ) : (
@@ -187,7 +187,7 @@ export default function Apply() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="bg-card border border-border/50 rounded-2xl shadow-sm p-6 md:p-10">
+                <div className="bg-card border border-border/50 rounded-2xl shadow-sm p-3.5 sm:p-6 md:p-10">
                   {mtechStatus === "open" ? (
                     <MtechApplicationForm />
                   ) : (
