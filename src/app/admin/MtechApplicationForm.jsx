@@ -56,7 +56,7 @@ const FormSchema = z.object({
   religion: z.string().min(1, "Religion is required"),
   reservationCategory: z.string().min(1, "Reservation Category is required"),
   btechDegree: z.string().min(1, "B.Tech degree is required"),
-  btechMark: z.string().min(1, "B.Tech marks are required").refine(val => /^\d+(\.\d+)?$/.test(val), "Marks must be a valid number"),
+  btechMark: z.string().min(1, "B.Tech / Other Qualifying Exam marks are required").refine(val => /^\d+(\.\d+)?$/.test(val), "Marks must be a valid number"),
   btechCollege: z.string().min(1, "College name is required"),
   btechUniversity: z.string().min(1, "University is required"),
   btechYear: z.string().min(1, "Year of passing is required"),
@@ -93,7 +93,7 @@ const FormSchema = z.object({
   if (!isNaN(parsedMark) && parsedMark < minMark) {
     ctx.addIssue({
       code: z.ZodIssueCode.custom,
-      message: `B.Tech marks must be ${minMark}% or greater for ${category} category`,
+      message: `B.Tech / Other Qualifying Exam marks must be ${minMark}% or greater for ${category} category`,
       path: ["btechMark"],
     });
   }
@@ -381,7 +381,7 @@ export const MtechApplicationForm = ({ onSuccess }) => {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {renderReviewItem("B.Tech Degree Branch", submittedData.btechDegree)}
-              {renderReviewItem("B.Tech Marks %", `${submittedData.btechMark}%`)}
+              {renderReviewItem("B.Tech / Other Qualifying Exam Marks %", `${submittedData.btechMark}%`)}
               {renderReviewItem("College Name", submittedData.btechCollege)}
               {renderReviewItem("University", submittedData.btechUniversity)}
               {renderReviewItem("Year of Passing", submittedData.btechYear)}
@@ -556,7 +556,7 @@ export const MtechApplicationForm = ({ onSuccess }) => {
             })}
             {renderInputField({
               name: "btechMark",
-              label: required("B.Tech Marks %"),
+              label: required("B.Tech / Other Qualifying Exam Marks %"),
               type: "number",
               step: "0.01",
               icon: Percent,

@@ -62,7 +62,7 @@ export const generateMtechPDF = (data) => {
   
   // Qualifying Degree Details
   drawSectionHeader("B.Tech / Qualifying Degree Details");
-  drawRow("B.Tech Degree Branch", data.btechDegree, "B.Tech Marks %", data.btechMark ? `${data.btechMark}%` : "N/A");
+  drawRow("B.Tech Degree Branch", data.btechDegree, "B.Tech / Other Qualifying Exam Marks %", data.btechMark ? `${data.btechMark}%` : "N/A");
   drawRow("College Name", data.btechCollege, "University", data.btechUniversity);
   drawRow("Year of Passing", data.btechYear);
   y += 1;
