@@ -66,7 +66,7 @@ const FormSchema = z.object({
   distance: z.string().min(1, "Distance is required").refine(val => /^\d+(\.\d+)?$/.test(val), "Distance must be a valid number").refine(val => parseFloat(val) <= 75, "Distance must be 75 km or less (not eligible if greater)"),
   address: z.string().min(1, "Address is required"),
   age: z.string().min(1, "Age is required").refine(val => /^\d+$/.test(val), "Age must be a valid number"),
-  transactionId: z.string().min(1, "Transaction ID is required").regex(/^\d{12}$/, "Transaction ID must be exactly 12 digits and only numbers"),
+  transactionId: z.string().min(1, "Transaction ID is required"),
   paymentScreenshotUrl: z.any().refine((val) => {
     if (!val) return false;
     if (typeof val === "string" && val.length > 0) return true;
@@ -682,12 +682,11 @@ export const MtechApplicationForm = ({ onSuccess }) => {
               {renderInputField({
                 name: "transactionId",
                 label: required("Transaction / UTR ID"),
-                maxLength: 12,
                 icon: FileText,
-                placeholder: "e.g. 123456789012",
+                placeholder: "e.g. SBIY22XXXXXXXXXXXXXXXXXXXXX or UTR number",
               })}
               <p className="text-xs text-muted-foreground">
-                Enter the 12-digit transaction ID or UTR number after transferring the payment.
+                Enter the transaction ID or UTR number after transferring the payment.
               </p>
 
               <FormField
