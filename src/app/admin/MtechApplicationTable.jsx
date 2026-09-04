@@ -27,6 +27,14 @@ import {
 } from "@/components/ui/Table";
 import { Button } from "@/components/ui/Button";
 import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/DropdownMenu";
+import {
   Download,
   Loader2,
   Trash2,
@@ -37,12 +45,33 @@ import {
   XCircle,
   Clock,
   ImageIcon,
+  FileSpreadsheet,
+  Layers,
+  ChevronDown,
 } from "lucide-react";
 import MtechApplicationModal from "./MtechApplicationModal";
 import MtechApplicationDetailModal from "./MtechApplicationDetailModal";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/Tabs";
 import { toast } from "sonner";
 import * as XLSX from "xlsx";
+
+const MTECH_SPECIALIZATIONS = [
+  {
+    key: "Control Systems (Electrical Engineering)",
+    shortName: "Control_Systems",
+    label: "Control Systems (Electrical)",
+  },
+  {
+    key: "Thermal Science (Mechanical Engineering)",
+    shortName: "Thermal_Science",
+    label: "Thermal Science (Mechanical)",
+  },
+  {
+    key: "Traffic & Transportation Engineering (Civil Engineering)",
+    shortName: "Traffic_Transportation",
+    label: "Traffic & Transportation (Civil)",
+  },
+];
 
 export const MtechApplicationTable = ({
   searchTerm,
@@ -155,27 +184,92 @@ export const MtechApplicationTable = ({
     return matchesSearch && matchesYear && matchesTab;
   });
 
-  const onExport = () => {
-    const exportData = filteredApps.map((app) => ({
-      Status: app.status || "pending",
-      Name: app.name,
-      Email: app.email,
-      Phone: app.phone,
-      "B.Tech Degree": app.btechDegree,
-      "B.Tech Mark": app.btechMark,
-      Specialization: app.specialization,
-      Experience: app.experience,
-      Distance: app.distance,
-      Caste: app.caste,
-      Religion: app.religion,
-      Category: app.reservationCategory,
-      "Transaction ID": app.transactionId,
-      "Payment Screenshot URL": app.paymentScreenshotUrl || "N/A",
-    }));
+  const formatAppForExport = (app, index) => ({
+    "Sl No": index + 1,
+    Status: app.status || "pending",
+    Name: app.name,
+    Email: app.email,
+    Phone: app.phone,
+    "B.Tech Degree": app.btechDegree,
+    "B.Tech Mark %": app.btechMark,
+    Specialization: app.specialization,
+    "Experience (Years)": app.experience,
+    "Distance (km)": app.distance,
+    Caste: app.caste,
+    Religion: app.religion,
+    Category: app.reservationCategory,
+    "Transaction ID": app.transactionId,
+    "Payment Screenshot URL": app.paymentScreenshotUrl || "N/A",
+  });
+
+  const onExportAll = () => {
+    if (filteredApps.length === 0) {
+      toast.error("No applications to export");
+      return;
+    }
+    const exportData = filteredApps.map(formatAppForExport);
     const worksheet = XLSX.utils.json_to_sheet(exportData);
     const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "M.Tech Applications");
-    XLSX.writeFile(workbook, `Mtech_Applications_${activeTab}.xlsx`);
+    XLSX.utils.book_append_sheet(workbook, worksheet, "All M.Tech Applications");
+    XLSX.writeFile(workbook, `Mtech_Applications_All_${activeTab}.xlsx`);
+    toast.success("Exported all applications to Excel");
+  };
+
+  const onExportSeparateExcelFiles = () => {
+    if (filteredApps.length === 0) {
+      toast.error("No applications to export");
+      return;
+    }
+    let count = 0;
+    MTECH_SPECIALIZATIONS.forEach((spec) => {
+      const specApps = filteredApps.filter((app) => app.specialization === spec.key);
+      const exportData = specApps.map(formatAppForExport);
+      const worksheet = XLSX.utils.json_to_sheet(exportData.length > 0 ? exportData : [{ Note: "No applications found" }]);
+      const workbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workbook, worksheet, spec.label.substring(0, 31));
+      XLSX.writeFile(workbook, `Mtech_Applications_${spec.shortName}_${activeTab}.xlsx`);
+      count++;
+    });
+    toast.success(`Downloaded 3 separate Excel files for each M.Tech course!`);
+  };
+
+  const onExportMultiSheetExcel = () => {
+    if (filteredApps.length === 0) {
+      toast.error("No applications to export");
+      return;
+    }
+    const workbook = XLSX.utils.book_new();
+
+    // 1. All applications sheet
+    const allExportData = filteredApps.map(formatAppForExport);
+    const allWs = XLSX.utils.json_to_sheet(allExportData);
+    XLSX.utils.book_append_sheet(workbook, allWs, "All Applications");
+
+    // 2. Individual course sheets
+    MTECH_SPECIALIZATIONS.forEach((spec) => {
+      const specApps = filteredApps.filter((app) => app.specialization === spec.key);
+      const exportData = specApps.map(formatAppForExport);
+      const ws = XLSX.utils.json_to_sheet(exportData.length > 0 ? exportData : [{ Note: "No applications found" }]);
+      // Sheet names max length 31 chars in Excel
+      const sheetTitle = spec.shortName.replace("_", " ");
+      XLSX.utils.book_append_sheet(workbook, ws, sheetTitle);
+    });
+
+    XLSX.writeFile(workbook, `Mtech_Applications_By_Course_${activeTab}.xlsx`);
+    toast.success("Exported multi-sheet Excel workbook by course!");
+  };
+
+  const onExportSingleCourse = (specObj) => {
+    const specApps = filteredApps.filter((app) => app.specialization === specObj.key);
+    if (specApps.length === 0) {
+      toast.warning(`No applications found for ${specObj.label}`);
+    }
+    const exportData = specApps.map(formatAppForExport);
+    const worksheet = XLSX.utils.json_to_sheet(exportData.length > 0 ? exportData : [{ Note: "No applications found" }]);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, specObj.shortName);
+    XLSX.writeFile(workbook, `Mtech_Applications_${specObj.shortName}_${activeTab}.xlsx`);
+    toast.success(`Exported ${specObj.label} to Excel`);
   };
 
   const renderStatusBadge = (status) => {
@@ -267,10 +361,56 @@ export const MtechApplicationTable = ({
         </div>
 
         <div className="flex gap-2 flex-wrap justify-end items-center">
-          <Button variant="outline" size="sm" onClick={onExport} disabled={isLoading} className="shadow-sm">
-            {isLoading ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : <Download className="h-4 w-4 mr-2" />}
-            Export
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="sm" disabled={isLoading} className="shadow-sm gap-1.5">
+                {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Download className="h-4 w-4 text-emerald-600" />}
+                <span>Export Excel</span>
+                <ChevronDown className="h-3.5 w-3.5 opacity-60" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-64">
+              <DropdownMenuLabel className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
+                Export Options
+              </DropdownMenuLabel>
+              <DropdownMenuItem onClick={onExportSeparateExcelFiles} className="cursor-pointer">
+                <FileSpreadsheet className="h-4 w-4 mr-2 text-emerald-600" />
+                <div className="flex flex-col">
+                  <span className="font-semibold text-xs">Create 3 Separate Excel Files</span>
+                  <span className="text-[10px] text-muted-foreground">Download 1 file per M.Tech course</span>
+                </div>
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={onExportMultiSheetExcel} className="cursor-pointer">
+                <Layers className="h-4 w-4 mr-2 text-blue-600" />
+                <div className="flex flex-col">
+                  <span className="font-semibold text-xs">Multi-Sheet Excel (By Course)</span>
+                  <span className="text-[10px] text-muted-foreground">1 Excel file with sheets per course</span>
+                </div>
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={onExportAll} className="cursor-pointer">
+                <Download className="h-4 w-4 mr-2 text-gray-600" />
+                <div className="flex flex-col">
+                  <span className="font-semibold text-xs">Export All (Single Sheet)</span>
+                  <span className="text-[10px] text-muted-foreground">All filtered applications together</span>
+                </div>
+              </DropdownMenuItem>
+
+              <DropdownMenuSeparator />
+              <DropdownMenuLabel className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
+                Export Single Course
+              </DropdownMenuLabel>
+              {MTECH_SPECIALIZATIONS.map((spec) => (
+                <DropdownMenuItem
+                  key={spec.key}
+                  onClick={() => onExportSingleCourse(spec)}
+                  className="cursor-pointer text-xs"
+                >
+                  <FileSpreadsheet className="h-3.5 w-3.5 mr-2 text-emerald-500" />
+                  {spec.label}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
           <Button variant="destructive" size="sm" onClick={handleClearAll} disabled={isLoading || applications.length === 0} className="shadow-sm">
             <Trash2 className="h-4 w-4 mr-2" />
             Clear All
